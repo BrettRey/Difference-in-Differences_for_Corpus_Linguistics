@@ -1,3 +1,26 @@
 \section{Identification threats specific to corpora}
 
-% TODO: Treat composition drift, topic confounding, author turnover, genre mixture, spillover, measurement drift, and token dependence.
+The threats a corpus difference-in-differences faces are easiest to read off a small set of causal paths (Figure~\ref{fig:threat-dag}). Some are the ordinary worry about a confounder; three are particular to corpora. The policy moves the corpus's composition, the quantity we observe is a measurement of a latent rate, and varieties leak into one another through shared media. The figure also marks the one thing it cannot do, which is identify the effect.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>={Stealth[length=2mm]}, every node/.style={font=\small}]
+  \node[draw, dashed, ellipse, inner sep=1pt] (I)  at (1,2)    {Ideology};
+  \node[draw, rounded corners]                (T)  at (-0.4,0) {Policy timing};
+  \node[draw, dashed, ellipse, inner sep=1pt] (pi) at (4,0)    {Pop.\ rate $\pi$};
+  \node[draw, thick, rounded corners]         (f)  at (7.4,0)  {Observed $f$};
+  \node[draw, rounded corners]                (C)  at (3.6,-2) {Composition $C$};
+  \node[draw, rounded corners]                (Tn) at (-0.4,-2){Neighbour policy};
+  \draw[->] (I) -- (T);
+  \draw[->] (I) -- (pi);
+  \draw[->] (T) -- node[above, font=\scriptsize] {effect} (pi);
+  \draw[->] (pi) -- (f);
+  \draw[->] (T) -- node[left, font=\scriptsize, pos=0.55] {mediator} (C);
+  \draw[->] (C) -- (f);
+  \draw[->, dashed] (Tn) to[out=-25, in=-155] node[below, font=\scriptsize] {spillover} (f);
+\end{tikzpicture}
+\caption{The causal paths a corpus difference-in-differences must contend with, not a graph that identifies it. Dashed nodes are unobserved: gender ideology and the population rate $\pi$. Ideology is a common cause of when a polity adopts the policy and of usage itself, the fork that makes treatment timing endogenous. The policy's effect on $\pi$ is the target, and $\pi$ drives the observed frequency $f$. The policy also shifts composition $C$, which therefore lies on a path from treatment to $f$: $C$ is a mediator, so reweighting on it would subtract part of the effect, not just the bias. A neighbouring polity's policy reaches $f$ through shared media, violating no-interference. The graph catalogues the threats; it does not identify the effect. Identification rests on parallel trends, a restriction on the time-trend of the ideology-induced confounding that a static graph cannot display, which is why the design differences that confounding out rather than conditioning on the unobserved fork.}
+\label{fig:threat-dag}
+\end{figure}
+
+% TODO: take the paths in turn -- composition drift, topic confounding, author turnover, genre mixture, spillover, measurement drift, token dependence -- each tied to its diagnostic in Section 6.

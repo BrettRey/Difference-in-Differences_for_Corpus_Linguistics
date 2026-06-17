@@ -1,9 +1,9 @@
 # STATUS
 
 **Last updated:** 2026-06-17
-**State:** Infrastructure scaffolded as a standalone methods-paper project.
-**Next action:** Verify candidate DiD and language-oriented application sources before adding citations or bibliography entries.
-**Blocker:** No source verification or worked example has been selected yet.
+**State:** Three advisory-board rounds done; both literature halves intaken; `DESIGN-SPEC.md` at **v2**. Orienting principle fixed: the paper improves methods, the worked examples are vehicles, the round-3 threats are the curriculum. Spine re-centered on a **progressive build** of designs on feminization: (1) Swiss French vs France clean 2x2 core, (2) scale to staggered multi-variety, (3) trilingual Switzerland as a design-choice contrast; plus the simulation spine, Italian Sabatini 1987, and Croatian/Serbian breakdown. Deepest contribution = design choice. See DECISIONS.md and DESIGN-SPEC.md (2026-06-17).
+**Next action:** Rungs 1 and 2 are drafted in `sections/08` (both passed check-style); the decision ladder is validated by `simulations/rung1-ladder-sim.py`. Remaining: rung 3 (trilingual Switzerland, compact design-choice contrast), the Italian single-shock case, the Croatian/Serbian breakdown, and the simulation spine in prose. Also pending: extend the simulation (reweighting-recovery arm + actual partial-pooling estimator), the B&B-calibrated breakdown cutoff, principled thresholds, a power check, and the §11 full reads (Callaway-Sant'Anna / Rambachan-Roth / Egami). Cross-fertilization with Kinds_as_Projectibility_Profiles logged (ladder = a support-grade/demotion instance; kept out of the methods body by default).
+**Blocker:** None. Two rungs drafted; ladder validated; cross-model boards endorse the architecture.
 
 ## Working Title
 
