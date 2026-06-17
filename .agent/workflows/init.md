@@ -1,8 +1,8 @@
 ---
-description: Initialize the {{PAPER_TITLE}} project environment
+description: Initialize the Difference-in-Differences for Corpus Linguistics project environment
 ---
 
-# {{PAPER_TITLE}} Project Initialization
+# Difference-in-Differences for Corpus Linguistics Project Initialization
 
 This workflow orients you to the project. Use it at the start of any new session.
 
@@ -13,11 +13,12 @@ This workflow orients you to the project. Use it at the start of any new session
    ls -la
    ```
 
-2. **Read orchestration + status files (if present)**
+2. **Read orchestration + status files**
    ```
-   [ -f AGENTS.md ] && cat AGENTS.md
-   [ -f STATUS.md ] && cat STATUS.md
-   [ -f TODO.md ] && cat TODO.md
+   cat AGENTS.md
+   cat STATUS.md
+   cat DECISIONS.md
+   cat notes/source-verification.md
    ```
 
 3. **Check house style (if present)**
@@ -35,19 +36,19 @@ This workflow orients you to the project. Use it at the start of any new session
 ## Key Retrieval Points
 
 **For argument/outline:**
-- `outline.md`, `PLAN.md`, `docs/`, `notes/`
+- `STATUS.md`, `DECISIONS.md`, `notes/source-verification.md`, `sections/`
 
 **For current draft:**
-- `main.tex` (or the largest `*.tex` in the repo root)
+- `main.tex` and `sections/*.tex`
 
 **For bibliography:**
-- `references.bib` or `refs.bib`
+- `references.bib` (central symlink) and `references-local.bib` (verified project-specific entries only)
 
 **For figures/data:**
-- `figures/`, `Fig/`, `data/`
+- none yet; create `figures/`, `data/`, or `analysis/` only when a worked example is chosen
 
 **For source PDFs (if present):**
-- `literature/`, `sources/`, `pdf/`
+- central `../../literature/` and verified project-local sources only if needed
 
 Search PDFs quickly:
 ```
@@ -56,9 +57,9 @@ pdftotext "PATH/filename.pdf" - | rg -n "keyword"
 
 ## Full Initialization (New to Project)
 
-1. **Read `CLAUDE.md` and `AGENTS.md` (if present)** — overview, build commands, house style
-2. **Skim the main TeX file** (`main.tex` or equivalent) for structure and macro conventions
-3. **Locate bibliography + figure folders** so you know where to add assets
+1. **Read `CLAUDE.md`, `STATUS.md`, and `DECISIONS.md`** -- project role, build commands, and live state
+2. **Skim `main.tex` and `sections/*.tex`** for structure and macro conventions
+3. **Read `notes/source-verification.md` before adding citations**
 4. **Run a quick build** (optional, if you have TeX installed)
    - `make quick` or `make`
    - otherwise: `latexmk -pdf main.tex`
@@ -71,9 +72,10 @@ pdftotext "PATH/filename.pdf" - | rg -n "keyword"
 3. Keep changes small enough to review
 
 **For citation work:**
-1. Add BibTeX entries carefully (protect capitalization)
-2. Prefer `\textcite{}` / `\parencite{}` or project-standard macros
-3. Rebuild after citation edits to catch missing keys
+1. Verify sources against authoritative records before adding BibTeX
+2. Use central `references.bib` keys when available
+3. Add only verified project-specific entries to `references-local.bib`
+4. Rebuild after citation edits to catch missing keys
 
 **Git:**
 - Commit after each logical unit of work; use `/git-hygiene` if you need reminders

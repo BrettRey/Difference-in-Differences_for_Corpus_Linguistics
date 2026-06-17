@@ -3,13 +3,13 @@
 % House style preamble
 \input{.house-style/preamble.tex}
 
-% Update PDF metadata
 \hypersetup{
-  pdftitle={Difference-in-Differences for Corpus Linguistics},
-  pdfkeywords={TODO, keywords}
+  pdftitle={Difference-in-differences for corpus linguistics: Causal inference, corpus composition, and linguistic change after shocks},
+  pdfkeywords={difference-in-differences, corpus linguistics, causal inference, corpus composition, linguistic change}
 }
 
-\title{Difference-in-Differences for Corpus Linguistics}
+\title{Difference-in-differences for corpus linguistics\\
+{\large Causal inference, corpus composition, and linguistic change after shocks}}
 \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
 \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
 Humber Polytechnic \& University of Toronto}
@@ -19,37 +19,24 @@ Humber Polytechnic \& University of Toronto}
 \maketitle
 
 \begin{abstract}
-TODO: Write abstract here.
+TODO: Write abstract after source verification and worked-example choice.
 \end{abstract}
 
-\noindent\textbf{Keywords:} TODO; keywords
+\noindent\textbf{Keywords:} difference-in-differences; corpus linguistics; causal inference; corpus composition; linguistic change
 
-\section{Introduction}
-
-TODO: Write introduction here.
-
-\section{Background}
-
-TODO: Add background section.
-
-\section{Analysis}
-
-TODO: Add analysis section.
-
-\section{Discussion}
-
-TODO: Add discussion.
-
-\section{Conclusion}
-
-TODO: Write conclusion.
+\input{sections/01-problem}
+\input{sections/02-did-estimand}
+\input{sections/03-treatments}
+\input{sections/04-outcomes}
+\input{sections/05-identification-threats}
+\input{sections/06-diagnostics}
+\input{sections/07-modern-did-choices}
+\input{sections/08-worked-example}
+\input{sections/09-conclusion}
 
 \section*{Acknowledgements}
 
-% TODO: Replace [MODEL LIST] with the actual models used on this project and their current versions.
-% Check model names: frontier models change frequently.
-% Example list shape when accurate: Claude 3.5 & 4.5; ChatGPT o1 pro & 5.2 pro; Gemini 3; and DeepSeek V3.
-The large language models [MODEL LIST] served as drafting and editing aids throughout the preparation of this paper. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.
+TODO: Add final AI acknowledgement with the actual model/tool families used on this project.
 
 \clearpage
 \printbibliography

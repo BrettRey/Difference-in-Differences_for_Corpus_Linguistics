@@ -1,5 +1,4 @@
 # Makefile for LaTeX paper compilation
-# Naturalizing Typological Kinds: Comparanda, Mechanisms, and Measurement
 
 # Configuration
 LATEX = xelatex
@@ -8,13 +7,13 @@ MAIN = main
 OUTDIR = .
 
 # Targets
-.PHONY: all clean distclean view help test
+.PHONY: all clean distclean view help
 
 # Default target: build the PDF
 all: $(MAIN).pdf
 
 # Full build sequence with bibliography
-$(MAIN).pdf: $(MAIN).tex references.bib
+$(MAIN).pdf: $(MAIN).tex sections/*.tex references.bib references-local.bib
 	@echo "==> First LaTeX pass..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Running Biber..."
@@ -53,11 +52,6 @@ view: $(MAIN).pdf
 	@echo "==> Opening PDF..."
 	open $(MAIN).pdf
 
-# Test the Python specification
-test:
-	@echo "==> Testing theoretical specification..."
-	cd src && python typology.py
-
 # Show available targets
 help:
 	@echo "Available targets:"
@@ -67,5 +61,4 @@ help:
 	@echo "  make clean    - Remove build artifacts (keep PDF)"
 	@echo "  make distclean- Remove everything including PDF"
 	@echo "  make view     - Open PDF (macOS only)"
-	@echo "  make test     - Run Python specification tests"
 	@echo "  make help     - Show this help message"
