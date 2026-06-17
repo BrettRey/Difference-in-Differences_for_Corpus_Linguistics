@@ -1,25 +1,31 @@
 \section{Identification threats specific to corpora}
 
-The threats a corpus difference-in-differences faces are easiest to read off a small set of causal paths (Figure~\ref{fig:threat-dag}). Some are the ordinary worry about a confounder; three are particular to corpora. The policy moves the corpus's composition, the quantity we observe is a measurement of a latent rate, and varieties leak into one another through shared media. The figure also marks the one thing it cannot do, which is identify the effect.
+The threats a corpus difference-in-differences faces are easiest to read off a small set of causal paths (Figure~\ref{fig:threat-dag}). Some are the ordinary worry about a confounder; three are particular to corpora. The policy moves the corpus's composition, the quantity observed is a measurement of a latent rate, and varieties leak into one another through shared media. The figure also marks the one thing it cannot do, which is identify the effect.
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[>={Stealth[length=2mm]}, every node/.style={font=\small}]
-  \node[draw, dashed, ellipse, inner sep=1pt] (I)  at (1,2)    {Ideology};
-  \node[draw, rounded corners]                (T)  at (-0.4,0) {Policy timing};
-  \node[draw, dashed, ellipse, inner sep=1pt] (pi) at (4,0)    {Pop.\ rate $\pi$};
-  \node[draw, thick, rounded corners]         (f)  at (7.4,0)  {Observed $f$};
-  \node[draw, rounded corners]                (C)  at (3.6,-2) {Composition $C$};
-  \node[draw, rounded corners]                (Tn) at (-0.4,-2){Neighbour policy};
+\begin{tikzpicture}[>={Stealth[length=2mm]}, every node/.style={font=\small, align=center}]
+  \node[draw, dashed, ellipse, inner sep=1pt] (I)  at (2.0,1.8)   {Ideology};
+  \node[draw, rounded corners]                (Tn) at (4.4,2.4)   {Neighbour policy};
+  \node[draw, rounded corners]                (M)  at (7.2,3.0)   {Coding /\\transcription};
+  \node[draw, rounded corners]                (T)  at (0.8,0.2)   {Policy timing};
+  \node[draw, dashed, ellipse, inner sep=1pt] (pi) at (4.0,0.4)   {Pop.\ rate $\pi$};
+  \node[draw, thick, rounded corners]         (f)  at (8.0,0.4)   {Observed $f$};
+  \node[draw, rounded corners]                (C)  at (4.0,-1.4)  {Composition $C$};
+  \node[draw, rounded corners]                (Sc) at (0.8,-1.6)  {Non-policy\\composition};
   \draw[->] (I) -- (T);
   \draw[->] (I) -- (pi);
+  \draw[->] (I) -- (Tn);
+  \draw[->] (I) to[out=55, in=165] (M);
   \draw[->] (T) -- node[above, font=\scriptsize] {effect} (pi);
+  \draw[->] (T) -- node[below left, font=\scriptsize, pos=0.55] {mediator} (C);
+  \draw[->] (Sc) -- (C);
   \draw[->] (pi) -- (f);
-  \draw[->] (T) -- node[left, font=\scriptsize, pos=0.55] {mediator} (C);
   \draw[->] (C) -- (f);
-  \draw[->, dashed] (Tn) to[out=-25, in=-155] node[below, font=\scriptsize] {spillover} (f);
+  \draw[->] (M) -- (f);
+  \draw[->, dashed] (Tn) -- node[above right, font=\scriptsize, pos=0.25] {spillover} (f);
 \end{tikzpicture}
-\caption{The causal paths a corpus difference-in-differences must contend with, not a graph that identifies it. Dashed nodes are unobserved: gender ideology and the population rate $\pi$. Ideology is a common cause of when a polity adopts the policy and of usage itself, the fork that makes treatment timing endogenous. The policy's effect on $\pi$ is the target, and $\pi$ drives the observed frequency $f$. The policy also shifts composition $C$, which therefore lies on a path from treatment to $f$: $C$ is a mediator, so reweighting on it would subtract part of the effect, not just the bias. A neighbouring polity's policy reaches $f$ through shared media, violating no-interference. The graph catalogues the threats; it does not identify the effect. Identification rests on parallel trends, a restriction on the time-trend of the ideology-induced confounding that a static graph cannot display, which is why the design differences that confounding out rather than conditioning on the unobserved fork.}
+\caption{The causal paths a corpus difference-in-differences must contend with, not a graph that identifies it. Dashed nodes are unobserved: gender ideology and the population rate $\pi$. The same ideology, treated as a moving wave, drives when each polity adopts (its own and a neighbour's), drives usage $\pi$, and can drive the coding or transcription convention, so a not-yet-treated neighbour is no clean counterfactual and even the measurement can shift with the very thing under study. The policy's effect on $\pi$ is the target. Observed frequency $f$ is produced, not revealed: it's $\pi$ filtered through composition $C$ and the coding/transcription convention, so a change in convention alone moves $f$ with $\pi$ held fixed (the rung-3 transcription shock). Composition has two sources, and they call for opposite treatment: the policy moves part of it ($T \to C$, a mediator, so reweighting on a policy-moved margin subtracts part of the effect), while non-policy drift (sampling frame, outlet entry, author turnover, register mix) is a bias source to adjust for on pre-specified margins, its measurable part reweightable and its residual left to sensitivity analysis. A neighbour's policy reaches $f$ through several routes at once (spillover). The graph catalogues threats; it does not identify the effect. Identification rests on parallel trends, a restriction on the time-trend of the ideology-induced confounding that a static graph cannot display, which is why the design differences that confounding out rather than conditioning on the unobserved fork: a fixed ideological level is differenced away, an ideological trend is not.}
 \label{fig:threat-dag}
 \end{figure}
 
