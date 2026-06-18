@@ -6,6 +6,7 @@
 % TikZ for the threat-structure DAG (Section 5)
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, shapes.geometric}
+\usepackage{placeins}
 
 \hypersetup{
   pdftitle={Difference-in-differences for corpus linguistics: Causal inference, corpus composition, and linguistic change after shocks},
@@ -23,7 +24,7 @@ Humber Polytechnic \& University of Toronto}
 \maketitle
 
 \begin{abstract}
-After a shock (contact with another language, a new medium, a redrawn border, or a government decree), a form's frequency moves, and whether the shock caused the change is a natural question to ask. Difference-in-differences is built for that counterfactual, but its assumptions were written for panels of people and firms, not corpora. This paper translates them. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating five things a corpus invites merging: the target population, the corpus composition, the measurement procedure, the unit at which the treatment varies, and the unit at which uncertainty is counted. Parallel trends must then hold twice, in the rate and in the corpus filter, and diagnostics can only disqualify or bound a claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive contrast, a shared-trend reading, or no identified effect. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test of the framework rather than an empirical finding.
+After a shock (contact with another language, a new medium, a redrawn border, or a government decree), a form's frequency may move, and whether the shock caused the change is a natural question to ask. Difference-in-differences is built for that counterfactual, but its assumptions were written for panels of people and firms, not corpora. This paper translates them. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating several things a corpus invites merging: the target population, the corpus composition, the measurement procedure, the unit at which the treatment varies, and the unit at which uncertainty is counted. Parallel trends must then hold twice, in the rate and in the corpus filter, and diagnostics can only disqualify or bound a claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive contrast, a shared-trend reading, or no identified effect. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test of the framework rather than an empirical finding.
 \end{abstract}
 
 \noindent\textbf{Keywords:} difference-in-differences; corpus linguistics; causal inference; corpus composition; linguistic change
@@ -36,11 +37,12 @@ After a shock (contact with another language, a new medium, a redrawn border, or
 \input{sections/06-diagnostics}
 \input{sections/07-modern-did-choices}
 \input{sections/08-worked-example}
+\clearpage
 \input{sections/09-conclusion}
 
 \section*{Acknowledgements}
 
-TODO: Add final AI acknowledgement with the actual model/tool families used on this project.
+The large language models Claude Opus 4.8 and OpenAI Codex served as drafting and editing aids throughout the preparation of this paper, including a simulated expert review board used to stress-test the design. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.
 
 \clearpage
 \printbibliography
