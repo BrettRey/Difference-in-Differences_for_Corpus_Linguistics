@@ -3,9 +3,32 @@
 
 I build the design up rather than show it whole. Each rung adds one source of difficulty and turns the threat it introduces into a lesson, so the reader can see what a corpus difference-in-differences identifies and where it stops. The phenomenon throughout is the feminization of profession nouns under language policy. No rung is offered as a settled finding about feminization; each is a vehicle for the method.
 
+Each rung declares its estimand before any estimate (Table~\ref{tab:ledger}); the difference that matters most is the target, the usage rate $\pi$ in rungs 1 and 2 and a design contrast rather than a clean effect in rung 3.
+
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{The estimand ledger. Each rung fixes its target, design, and effect type before any estimate. Rung 3 is a design variant, not a clean two-group contrast.}
+\label{tab:ledger}
+\begin{tabular}{@{}l p{0.235\textwidth} p{0.235\textwidth} p{0.235\textwidth}@{}}
+\toprule
+ & \textbf{Rung 1} & \textbf{Rung 2} & \textbf{Rung 3} \\
+\midrule
+Target          & usage rate $\pi$, edited written standard & usage rate $\pi$, edited written standard & language-internal vs polity-driven (a design contrast) \\
+Treatment       & Swiss 1991 endorsement & staggered endorsements, 1979--1998 & Swiss federal policy, held fixed across regions \\
+Control         & France (1986 near-null) & not-yet-treated polities & the other Swiss language regions \\
+Window          & 1991--1997 & 1979--1998 and after & around 1991 \\
+Outcome         & feminine-marking share, female-referent profession/title tokens & the same, strategy-decomposed & the same, in the \emph{Bulletin officiel} \\
+Identifying unit & variety & polity & language region within one polity \\
+Clustering unit & variety (two) & polity (four to five) & region (three) \\
+Effect          & direct or total, declared & group-time ATTs & not a clean DiD; exposes the measurement link \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Rung 1: a two-group baseline}
 
-The cleanest start is a pair of varieties that share a language and differ in policy. French-speaking Switzerland endorsed feminine profession nouns early: the Swiss Federal Chancellery's 1991 report on non-sexist administrative language and \textcite{Moreau1991}'s professions dictionary. France makes the comparison, but not a pristine control. A 1986 circular under Prime Minister Fabius urged the same forms yet went largely unenforced, by the government's own later admission, until a second circular under Jospin in 1998 \citep{BurnettBonami2019}. I therefore treat 1986 as a near-null policy, take 1991--1997 as the window in which Switzerland is treated and France is not, and hold the 1998 French change back as a separate follow-up event.
+The cleanest start is a pair of varieties that share a language and differ in policy. French-speaking Switzerland endorsed feminine profession nouns early: the Swiss Federal Chancellery's 1991 report on non-sexist administrative language \citep{chancellerie1991} and \textcite{Moreau1991}'s professions dictionary. France makes the comparison, but not a pristine control. A 1986 circular under Prime Minister Fabius urged the same forms yet went largely unenforced, by the government's own later admission, until a second circular under Jospin in 1998 \citep{BurnettBonami2019}. I therefore treat 1986 as a near-null policy, take 1991--1997 as the window in which Switzerland is treated and France is not, and hold the 1998 French change back as a separate follow-up event.
 
 I measure the proportion of profession and title nouns that take feminine marking for a female referent, counted strategy-agnostically: any feminine article, agreement, or noun form rather than one favoured ending. The two varieties differ a little in preferred form, Switzerland tolerating \mention{-esse} where France resists feminine endings longer \citep{Dawes2003}, but sharing the language spares the comparison the gulf between French, German, and Italian. Because that single count assumes the realizations are exchangeable signs of one change, I break it out by strategy, separating a distinct feminine noun form (\mention{autrice}) from a feminine article or agreement on an otherwise invariant noun (\mention{la ministre}); for the many epicene nouns the article and agreement are the only feminization signal, so a divergence between strategies is a warning, not a detail. Female reference comes off independent cues, chiefly \mention{Madame} with a title, so the \mention{le}/\mention{la} alternation is identified without hand-coding.
 
@@ -13,7 +36,7 @@ Suisse romande's press is far smaller than France's, so the rarer titles land in
 
 Two cautions belong up front. The corpora are edited newspapers, so the design identifies a change in the edited written standard, not in spontaneous usage; use in the wider population stays a separate target, reached only through the lightly edited and spoken material added later.
 
-Corpus frequency is also a population rate plus a composition term, so the usual parallel-trends assumption now has to hold twice over: the corpus adds parallel trends in the composition term to the standard requirement of parallel trends in the rate, it does not replace it. The response to that second requirement is to reweight to a fixed composition, but only on margins the policy does not itself move: a profession or topic mix that the endorsement shifts is a mediator, and adjusting it would subtract part of the effect, not just the bias.
+Corpus frequency is also a population rate plus a composition term, so the usual parallel-trends assumption now has to hold twice over: the corpus adds parallel trends in the composition term to the standard requirement of parallel trends in the rate, it does not replace it. Rung 1's target is the usage rate (Table~\ref{tab:ledger}), so the response to that second requirement is to reweight to a fixed composition, the policy-moved topic and profession mix included, since for a usage estimand that mix is nuisance, not effect. The one margin left untouched is the realization strategy itself, which is part of the outcome.
 
 The two groups buy one sharp question, with a trap inside it. If the 1991 endorsement changed usage, Suisse romande should accelerate away from France after 1991 while the two ran together before. But an endorsement often ratifies a change already under way, so a pre-1991 divergence would mean 1991 is a waypoint on a curve, not its onset, and the later gap is no policy effect. The pre-1991 slopes come first, then: does the adoption rate change at 1991, not merely whether a gap opens? If instead both series rise together in calendar time throughout, the driver is a shared francophone shift in norms and the design has caught the wave, not the intervention.
 
@@ -27,7 +50,7 @@ Rung 1 thus carries the whole apparatus in miniature, a stated estimand, a falsi
 
 \subsection{Rung 2: scaling to staggered adoption}
 
-Adding varieties looks like a free improvement and is not. Québec endorsed feminine titles in 1979 and Belgium by décret in 1993; with Suisse romande (1991) and France (1998) that's four polities adopting at four dates. Treatment timing now varies, so the two-group contrast gives way to staggered estimators: group-time effects read against not-yet-treated varieties \citep{CallawaySantAnna2021}, after the standard warning that a pooled two-way fixed-effects estimate is a weighted average of two-by-two contrasts whose weights can go negative \citep{GoodmanBacon2021,deChaisemartin2020}, with event-study estimators robust to that contamination \citep{SunAbraham2021,BorusyakJaravelSpiess2024}. These estimators fix one thing, the negative weighting that heterogeneous effects induce; none of them touches selection into timing, the threat the next paragraphs turn to.
+Adding varieties looks like a free improvement and is not. Québec endorsed feminine titles in 1979 \citep{oqlf1979} and Belgium by décret in 1993 \citep{belgique1993decret}; with Suisse romande (1991) and France (1998) that's four polities adopting at four dates. Treatment timing now varies, so the two-group contrast gives way to staggered estimators: group-time effects read against not-yet-treated varieties \citep{CallawaySantAnna2021}, after the standard warning that a pooled two-way fixed-effects estimate is a weighted average of two-by-two contrasts whose weights can go negative \citep{GoodmanBacon2021,deChaisemartin2020}, with event-study estimators robust to that contamination \citep{SunAbraham2021,BorusyakJaravelSpiess2024}. These estimators fix one thing, the negative weighting that heterogeneous effects induce; none of them touches selection into timing, the threat the next paragraphs turn to.
 
 But four polities are not four independent experiments, and this rung exists to show why. The varieties are now whole countries, each with its own politics, press economy, and media regime that the two-group baseline never had to hold apart. The forms diverge as well: Québec writes \mention{auteure}, Belgium leans epicene, France resists, so rung 1's strategy-agnostic count now rests on treating these as exchangeable signs of one change, a premise to test rather than assume \citep{Dawes2003}.
 
@@ -39,9 +62,31 @@ The decision ladder carries over unchanged in form, with the staggered diagnosti
 
 \subsection{What the simulations show, and where they break}
 
-A corpus never reveals the population rate, so the one place to check that the design recovers the right answer is a simulation whose truth I set. On controlled data, the claim ladder routes each canonical case to the verdict it should, and reweighting recovers the true effect when a composition shift rides an observed stratum: a naive contrast of $+0.13$ on a pure artifact returns to zero once the mix is held fixed. That's a consistency check, not evidence the diagnostics have power on messy data.
+A corpus never reveals the population rate, so the one place to check that the design recovers the right answer is a simulation whose truth I set. On controlled data the claim ladder routes each canonical case to the verdict it should, and reweighting recovers the true effect when a composition shift rides an observed stratum: a naive contrast of $+0.13$ on a pure composition artifact returns to zero once the measured mix is held fixed, while drift the strata do not capture leaves both the naive and the reweighted estimate near $+0.15$, the case the method is honestly fooled by (\texttt{simulations/rung1-recovery-sim.py}). That's a consistency check, not evidence the diagnostics have power on messy data.
 
-So the failures get mapped, recording how often the ladder reaches the wrong verdict as each threat is turned up. Measured composition is caught or corrected, but drift the strata do not capture is invisible, and the false-positive rate climbs past half and on to a near-certainty as the hidden share grows. Thin cells destroy power: a small effect in a small variety is missed more than nine times in ten. Interference is caught when exposure is measured well and leaks false positives when it isn't.
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Operating characteristics of the decision ladder on the rung-1 design, four hundred replications per scenario (\texttt{simulations/rung-failure-map.py}). FP is a false effect claim, FN a missed real effect.}
+\label{tab:failuremap}
+\begin{tabular}{@{}l l r@{}}
+\toprule
+Scenario & Threat dialed up & Misrouting \\
+\midrule
+clean effect                     & none                            & 0\% FN \\
+measured composition artifact    & composition, inside the strata  & 0\% FP \\
+hidden drift, share $0.3$        & composition, outside the strata & 56\% FP \\
+hidden drift, share $0.6$        & the same                        & 99\% FP \\
+hidden drift, share $0.9$        & the same                        & 100\% FP \\
+small effect, sparse ($n=40$)    & thin cells                      & 94\% FN \\
+spillover, exposure measured     & interference                    & 0\% FP \\
+spillover, exposure noisy        & interference, mismeasured       & 8\% FP \\
+selection $\to$ wave (two-group) & timing on its own trajectory    & 100\% FP \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+So the failures get mapped (Table~\ref{tab:failuremap}), recording how often the ladder reaches the wrong verdict as each threat is turned up over four hundred replications. Measured composition is caught, but drift outside the reweighting strata is invisible, and the false-positive rate climbs from $56\%$ at a hidden share of $0.3$ to near-certainty by $0.6$. Thin cells destroy power: a real effect in a sparse variety is missed in $94$ runs of a hundred. Interference is caught when exposure is measured well and leaks an $8\%$ false-positive rate when it isn't.
 
 And selection into treatment timing, a control on its own trajectory, is observationally identical to a real effect in a two-group design. Rung 2's calendar-time test catches only one version, a single synchronized wave; heterogeneous local waves, each moving its own polity's timing, also produce date-aligned jumps and survive it. For a phenomenon driven that way the honest modal verdict is descriptive or not identified, which is the point: the value here is the method, not a feminization finding.
 
@@ -49,8 +94,8 @@ Read together, the simulations are sanity checks and a failure map, not a certif
 
 \subsection{Rung 3: a design choice, and a sharper measurement threat}
 
-The third rung changes the comparison axis rather than the estimator. Trilingual Switzerland holds the polity and its federal policy fixed while language varies, so a contrast across the French-, German-, and Italian-speaking regions asks whether a change is language-internal, a francophone wave shared with France, or polity-driven, a Swiss federal endorsement felt in all three. The Federal Assembly's \emph{Bulletin officiel} is the natural home: digitized back to the nineteenth century and recorded in all three languages from one institution, it offers the within-country, language-varying counterfactual rungs 1 and 2 cannot.
+The third rung changes the comparison axis rather than the estimator. Trilingual Switzerland holds the polity and its federal policy fixed while language varies, so a contrast across the French-, German-, and Italian-speaking regions asks whether a change is language-internal, a francophone wave shared with France, or polity-driven, a Swiss federal endorsement felt in all three. The Federal Assembly's \emph{Bulletin officiel} is the natural home: one institution publishing in all three languages, digitized from 1891 and carrying full verbatim debates from 1971, so the 1991 window sits well inside the usable record and offers the within-country, language-varying counterfactual rungs 1 and 2 cannot.
 
 But the register carries a cost, and the cost is the rung's lesson. Parliamentary address is squarely on topic, \mention{Madame la ministre} against \mention{Madame le ministre} is a real chamber-floor variable, though the official record is a normalized transcription, not speech, with its own house style. If the transcription service adopts feminine forms on some date, the observed frequency jumps with no change in what members said: the measurement link of Figure~\ref{fig:threat-dag}, from latent rate to observed $f$, becomes the dominant path, a policy shock on the corpus rather than on usage. The diagnostic is to date the transcription convention independently and treat its change as a rival event. The speaker pool drifts too, since the share of women members rises across the period and with it the referent base the outcome conditions on.
 
-% TODO Italian single-shock (Sabatini 1987 / la Repubblica); Croatian/Serbian breakdown; simulation spine.
+% Optional future extensions: Italian single-shock (Sabatini 1987); Croatian/Serbian breakdown.
