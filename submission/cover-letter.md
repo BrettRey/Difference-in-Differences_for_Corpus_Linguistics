@@ -18,7 +18,7 @@ A worked example, the feminization of profession nouns under francophone languag
 
 I think CLLT is the right home because the paper sits at the intersection of corpus data and linguistic theory: it brings causal-inference discipline to diachronic corpora while respecting the linguistic realities of change, S-curve diffusion, actuation, and register. The argument is grounded in the corpus-methodological literature on representativeness, sampling frames, and comparability, and in corpus work on prescription and usage.
 
-The simulations are reproduced by three short, deterministic Python scripts (standard library only, fixed seeds), included as supplementary material. The manuscript discloses the use of large language models as drafting and editing aids; I'm responsible for all theoretical claims, arguments, and interpretive choices. The work is original, single-authored, and not under consideration elsewhere.
+The simulations are reproduced by three short, deterministic Python scripts (standard library only, fixed seeds), included as supplementary material. I used large language models (Claude Opus 4.8 and OpenAI Codex) as drafting and editing aids in preparing this manuscript; I'm responsible for all theoretical claims, arguments, errors, and interpretive choices. The work is original, single-authored, and not under consideration elsewhere.
 
 Thank you for considering the manuscript.
 

@@ -66,14 +66,11 @@ A form's frequency may move after a shock (contact with another language, a new 
 % On acceptance, a public archive with a DOI (e.g. Zenodo) can replace "supplementary material".
 The simulations of Section~\ref{sec:worked} are reproduced by three short Python scripts (standard library only, fixed random seeds), provided as supplementary material. The reported numbers reproduce exactly from the seeded scripts: \texttt{rung-failure-map.py} (seed~7) generates Table~\ref{tab:failuremap} and the operating-characteristic rates quoted in the text, \texttt{rung1-recovery-sim.py} (seed~2024) the reweighting-recovery estimates, and \texttt{rung1-ladder-sim.py} (seed~12345) the decision-ladder routing check. No human-subjects data is used, and the corpora named in the worked example are illustrative rather than analyzed.
 
-% AI-use disclosure: non-identifying, so it stays in BOTH builds (De Gruyter and
-% most venues expect an AI-use statement even in the anonymized review copy). The
-% heading just renames under blinding. Any author-identifying thanks (funding,
-% named colleagues) should go in an \ifblind\else ... \fi block so the blind build
-% drops them; there are none at present.
-\section*{\ifblind Statement on AI use\else Acknowledgements\fi}
-
-The large language models Claude Opus 4.8 and OpenAI Codex served as drafting and editing aids throughout the preparation of this paper. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.
+% AI-use disclosure lives in the cover letter (submission/cover-letter.md), not in
+% the manuscript -- this keeps the blinded review copy free of acknowledgments per
+% the submission system's blinding requirement. If the journal wants the disclosure
+% in the published version, restore an Acknowledgements section at the camera-ready
+% stage.
 
 \clearpage
 \printbibliography
