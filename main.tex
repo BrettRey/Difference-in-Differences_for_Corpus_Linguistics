@@ -38,13 +38,13 @@
   \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
   Humber Polytechnic \& University of Toronto}
 \fi
-\date{\today}
+\date{June 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-A form's frequency may move after a shock (contact with another language, a new medium, a redrawn border, or a government decree), and whether or not the shock caused the change is a natural question to ask. Difference-in-differences is built for that counterfactual, and the discipline it needs is the one applied economics already brings to constructed aggregates like price indices and GDP, where the observed number is not the quantity of interest either. This paper carries that discipline to corpus frequencies, where it's rarely applied and where the corpus's own composition and coding make it bite harder. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating several things a corpus invites merging: the target population, the corpus composition, the measurement procedure, the unit at which the treatment varies, and the unit at which uncertainty is counted. Identifying a change in the rate then needs parallel trends twice over, in the rate and in the corpus filter, and the diagnostics can only disqualify or bound the claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive reading, a shared wave, or not identified. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test of the framework rather than an empirical finding.
+A form's frequency may move after a shock (contact with another language, a new medium, a redrawn border, or a government decree), and whether the shock caused the change is a natural question. Difference-in-differences is built for that counterfactual, with the discipline applied economics already brings to constructed aggregates like price indices, where the observed number isn't the quantity of interest either. This paper carries that discipline to corpus frequencies, where it's rarely applied and where composition and coding make it bite harder. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating several things a corpus merges: the target population, the corpus composition, the measurement procedure, and the units at which treatment varies and uncertainty is counted. Identifying a change in the rate then needs parallel trends twice over, in the rate and the corpus filter, and the diagnostics can only disqualify or bound the claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive reading, a shared wave, or not identified. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test, not an empirical finding.
 \end{abstract}
 
 \noindent\textbf{Keywords:} difference-in-differences; corpus linguistics; causal inference; corpus composition; linguistic change
@@ -57,16 +57,23 @@ A form's frequency may move after a shock (contact with another language, a new 
 \input{sections/06-diagnostics}
 \input{sections/07-modern-did-choices}
 \input{sections/08-worked-example}
-\clearpage
+% Flush any pending Section 8 floats (Tables 1-2) so they can't drift into the
+% conclusion, without forcing an unconditional page break before it.
+\FloatBarrier
 \input{sections/09-conclusion}
 
 \section*{Data and code availability}
 % On acceptance, a public archive with a DOI (e.g. Zenodo) can replace "supplementary material".
 The simulations of Section~\ref{sec:worked} are reproduced by three short Python scripts (standard library only, fixed random seeds), provided as supplementary material. The reported numbers reproduce exactly from the seeded scripts: \texttt{rung-failure-map.py} (seed~7) generates Table~\ref{tab:failuremap} and the operating-characteristic rates quoted in the text, \texttt{rung1-recovery-sim.py} (seed~2024) the reweighting-recovery estimates, and \texttt{rung1-ladder-sim.py} (seed~12345) the decision-ladder routing check. No human-subjects data is used, and the corpora named in the worked example are illustrative rather than analyzed.
 
-\section*{Acknowledgements}
+% AI-use disclosure: non-identifying, so it stays in BOTH builds (De Gruyter and
+% most venues expect an AI-use statement even in the anonymized review copy). The
+% heading just renames under blinding. Any author-identifying thanks (funding,
+% named colleagues) should go in an \ifblind\else ... \fi block so the blind build
+% drops them; there are none at present.
+\section*{\ifblind Statement on AI use\else Acknowledgements\fi}
 
-The large language models Claude Opus 4.8 and OpenAI Codex served as drafting and editing aids throughout the preparation of this paper, including a simulated expert review board used to stress-test the design. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.
+The large language models Claude Opus 4.8 and OpenAI Codex served as drafting and editing aids throughout the preparation of this paper. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.
 
 \clearpage
 \printbibliography

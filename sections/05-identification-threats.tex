@@ -21,15 +21,15 @@ The threats a corpus DiD faces are easiest to read off a small set of causal pat
   \draw[->] (I) -- (pi);
   \draw[->] (I) -- (Tn);
   \draw[->] (I) to[bend left=30] (M);
-  \draw[->] (T) -- node[above, font=\scriptsize] {effect} (pi);
+  \draw[->, thick] (T) -- node[above, font=\scriptsize] {effect} (pi);
   \draw[->] (T) -- node[midway, right, font=\scriptsize] {mediator} (C);
   \draw[->] (Sc) -- (C);
-  \draw[->] (pi) -- (f);
+  \draw[->, thick] (pi) -- (f);
   \draw[->] (C) -- (f);
   \draw[->] (M) -- (f);
   \draw[->, dashed] (Tn) -- node[below left, font=\scriptsize, pos=0.5, yshift=6pt] {spillover} (f);
 \end{tikzpicture}
-\caption{The causal paths a corpus DiD contends with: a threat map, not a graph that identifies the effect. Dashed nodes are unobserved (gender ideology and the population rate $\pi$). The arrows are the routes the section takes up in turn, ideology as a common cause of adoption timing and usage, the policy's effect on the rate (the target) and its mediated effect on composition $C$, the measurement link from $\pi$ to observed $f$, and a neighbour's spillover. What the figure cannot show is the assumption that identifies the effect: parallel trends is a restriction on a time-trend, not a path a static graph can show.}
+\caption{The causal paths a corpus DiD contends with: a threat map, not a graph that identifies the effect. Dashed nodes are unobserved (gender ideology and the population rate $\pi$). The arrows are the routes the section takes up in turn, ideology as a common cause of adoption timing and usage, the policy's effect on the rate (the target, drawn as the heavier spine through $\pi$ to $f$) and its mediated effect on composition $C$, the measurement link from $\pi$ to observed $f$, and a neighbour's spillover. What the figure cannot show is the assumption that identifies the effect: parallel trends is a restriction on a time-trend, not a path a static graph can show.}
 \label{fig:threat-dag}
 \end{figure}
 
