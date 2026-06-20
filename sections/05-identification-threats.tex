@@ -1,7 +1,7 @@
 \section{Identification threats specific to corpora}
 \label{sec:threats}
 
-The threats a corpus DiD faces are easiest to read off a small set of causal paths (Figure~\ref{fig:threat-dag}). They fall into five families. Four are inflected, or created, by the corpus, composition, measurement, interference, and aggregation; the fifth, selection into treatment timing, is the ordinary confounding worry any DiD faces. Each is a way the observed contrast can be mistaken for the policy's effect on the population rate, and each has a diagnostic in Section~\ref{sec:diagnostics} that can expose it when the relevant margin is measured, or at least bound the claim's fragility.
+The threats a corpus DiD faces are easiest to read off a small set of causal paths (Figure~\ref{fig:threat-dag}; read each arrow as \enquote{this directly affects that}). They fall into five families. Four are inflected, or created, by the corpus, composition, measurement, interference, and aggregation; the fifth, selection into treatment timing, is the ordinary confounding worry any DiD faces. Each is a way the observed contrast can be mistaken for the policy's effect on the population rate, and each has a diagnostic in Section~\ref{sec:diagnostics} that can expose it when the relevant margin is measured, or at least bound the claim's fragility.
 
 \begin{figure}[t]
 \centering
@@ -16,30 +16,30 @@ The threats a corpus DiD faces are easiest to read off a small set of causal pat
   \node[draw, thick, rounded corners]         (f)  at (8.4,0)     {Observed $f$};
   % bottom row: the composition layer
   \node[draw, rounded corners]                (Sc) at (1.2,-1.8)  {Non-policy\\composition};
-  \node[draw, rounded corners]                (C)  at (4.0,-1.8)  {Composition $C$};
+  \node[draw, rounded corners]                (C)  at (5.0,-1.8)  {Composition $C$};
   \draw[->] (I) -- (T);
   \draw[->] (I) -- (pi);
   \draw[->] (I) -- (Tn);
   \draw[->] (I) to[bend left=30] (M);
   \draw[->] (T) -- node[above, font=\scriptsize] {effect} (pi);
-  \draw[->] (T) -- node[below left, font=\scriptsize, pos=0.6] {mediator} (C);
+  \draw[->] (T) -- node[midway, right, font=\scriptsize] {mediator} (C);
   \draw[->] (Sc) -- (C);
   \draw[->] (pi) -- (f);
   \draw[->] (C) -- (f);
   \draw[->] (M) -- (f);
-  \draw[->, dashed] (Tn) -- node[above right, font=\scriptsize, pos=0.2] {spillover} (f);
+  \draw[->, dashed] (Tn) -- node[below left, font=\scriptsize, pos=0.5, yshift=6pt] {spillover} (f);
 \end{tikzpicture}
-\caption{The causal paths a corpus DiD must contend with: a threat map, not a graph that identifies the effect. Dashed nodes are unobserved (gender ideology and the population rate $\pi$). The arrows are the routes the section takes up in turn, ideology as a common cause of adoption timing and usage, the policy's effect on the rate (the target) and its mediated effect on composition $C$, the measurement link from $\pi$ to observed $f$, and a neighbour's spillover. What the figure cannot show is the assumption that identifies the effect: parallel trends is a restriction on a time-trend, not a path a static graph can show.}
+\caption{The causal paths a corpus DiD contends with: a threat map, not a graph that identifies the effect. Dashed nodes are unobserved (gender ideology and the population rate $\pi$). The arrows are the routes the section takes up in turn, ideology as a common cause of adoption timing and usage, the policy's effect on the rate (the target) and its mediated effect on composition $C$, the measurement link from $\pi$ to observed $f$, and a neighbour's spillover. What the figure cannot show is the assumption that identifies the effect: parallel trends is a restriction on a time-trend, not a path a static graph can show.}
 \label{fig:threat-dag}
 \end{figure}
 
-Composition is the first, and it splits in two. A policy can move the mix it's measured against, the professions in the news, the topics in play, so part of composition lies on the path from treatment to $f$ (the edge $T \to C$). Whether to reweight it away depends on the estimand of Section~\ref{sec:estimand}: for the usage rate it's nuisance and gets reweighted out, for the total-output effect it's part of the answer and stays. The rest of composition, sampling frame, outlet entry, author turnover, register mix, drifts for reasons the policy didn't cause and is a bias source to adjust for either way. The two look alike in the data, so the margins to reweight have to be named, with the estimand, before the estimate is seen.
+Composition is the first, splitting in two. A policy can move the mix it's measured against, the professions in the news, the topics in play, so part of composition lies on the path from treatment to $f$ (the edge $T \to C$). Whether to reweight it away depends on the estimand of Section~\ref{sec:estimand}: for the usage rate it's nuisance and gets reweighted out, for the total-output effect it's part of the answer and stays. The rest of composition, sampling frame, outlet entry, author turnover, register mix, drifts for reasons the policy didn't cause and is a bias source to adjust for either way. The two look alike in the data, so the margins to reweight have to be named, with the estimand, before the estimate is seen.
 
 Measurement is the second. What the corpus records is not the latent rate but a coding of it, and the coding can drift, a classifier whose error rate moves with the period, a transcription house-style that adopts new forms on a date of its own. When it does, $f$ jumps while $\pi$ holds still. That's confounding read off the text itself \citep{keith2020text}, the instrument measuring the outcome turned into a moving part, and it bites hardest where the same ideology that changes usage can also revise the coding convention.
 
-Interference is the third, and it breaks the assumption that one variety's treatment leaves the others untouched. Suisse romande reads French media, both draw on the same wire service, and a policy in one polity reaches readers in another. A not-yet-treated control is then not untreated but lightly dosed; the leak runs both ways, since the treated polity seeps into the control's post-period too, here slight only because France dwarfs Suisse romande. So the estimand has to be named, the policy's direct effect net of diffusion, or its total effect including it, and the shared material held aside for a separate estimate.
+Interference is the third, breaking the assumption that one variety's treatment leaves the others untouched. The channels are many: Suisse romande shares wire services with France, the same dictionaries and style guides circulate across the francophonie, writers file across borders, and the open internet ignores the boundary entirely. A not-yet-treated control is then not untreated but lightly dosed, the leak running both ways, since the treated polity seeps into the control's post-period too, here slight only because France dwarfs Suisse romande. Shared wire copy can be held aside and deduplicated; the other channels can't be, which is why the estimand has to be named, the policy's direct effect net of diffusion or its total effect including it. Sharing a language, the varieties form one discourse community, so no-interference is less an assumption to test than a quantity to bound.
 
-Aggregation is the fourth, and the easiest to overlook. The level at which counts are summed into observations, token, document, outlet-month, title-variety-year, fixes the weights and the denominators, and a change in that level can move the estimand with no change in usage: a few prolific outlets or a burst of one topic can carry a token-level rate that a cell-level rate would not. The aggregation unit of Section~\ref{sec:estimand} is a modelling choice with identifying consequences, not bookkeeping.
+Aggregation is the fourth, and the easiest to overlook. The level at which counts are summed into observations (token, document, outlet-month, title-variety-year) fixes the weights and the denominators, and a change in that level can move the estimand with no change in usage: a few prolific outlets or a burst of one topic can carry a token-level rate that a cell-level rate would not. The aggregation unit of Section~\ref{sec:estimand} is a modelling choice with identifying consequences, not bookkeeping.
 
 Selection into treatment timing is the fifth and the deepest. A polity tends to legislate about when its gender politics have already moved, and that same movement shifts usage, so adoption timing is correlated with the outcome's own trajectory. The ideology fork in the figure is exactly that, a common cause of when the policy lands and of how usage was already going. No estimator removes it, and in a two-group design it's observationally indistinguishable from a real effect.
 

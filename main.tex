@@ -7,24 +7,44 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, shapes.geometric}
 \usepackage{placeins}
+\usepackage{amsmath}
+
+% --- Anonymization toggle for double-blind review ---
+% Default build (make / make quick): full manuscript with the author block.
+% Blinded build (make blind): author name, ORCID, affiliation, and contact
+% removed. Triggered by \blindbuild, passed on the command line by the Makefile.
+\newif\ifblind
+\ifdefined\blindbuild \blindtrue \else \blindfalse \fi
+
+% CLLT / De Gruyter Mouton: key terms in italics at first mention (their style
+% sheet forbids small caps for emphasis). Local override of the house-style
+% \term (small caps) for this paper only; the central preamble is untouched.
+\renewcommand{\term}[1]{\emph{#1}}
 
 \hypersetup{
   pdftitle={Difference-in-differences for corpus linguistics: Causal inference, corpus composition, and linguistic change after shocks},
   pdfkeywords={difference-in-differences, corpus linguistics, causal inference, corpus composition, linguistic change}
 }
+% In blind mode, strip the author from the PDF metadata too: the house-style
+% preamble hardcodes pdfauthor={Brett Reynolds}, so this override must follow it.
+\ifblind\hypersetup{pdfauthor={}}\fi
 
 \title{Difference-in-differences for corpus linguistics\\
 {\large Causal inference, corpus composition, and linguistic change after shocks}}
-\author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
-\thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
-Humber Polytechnic \& University of Toronto}
+\ifblind
+  \author{[\textit{Author name, ORCID, and affiliation removed for double-blind review}]}
+\else
+  \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
+  \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
+  Humber Polytechnic \& University of Toronto}
+\fi
 \date{\today}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-A form's frequency may move after a shock (contact with another language, a new medium, a redrawn border, or a government decree), and whether or not the shock caused the change is a natural question to ask. Difference-in-differences is built for that counterfactual, and the discipline it needs is the one applied economics already brings to constructed aggregates like price indices and GDP, where the observed number is not the quantity of interest either. This paper carries that discipline to corpus frequencies, where it's rarely applied and where the corpus's own composition and coding make it bite harder. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating several things a corpus invites merging: the target population, the corpus composition, the measurement procedure, the unit at which the treatment varies, and the unit at which uncertainty is counted. Identifying a change in the rate then needs parallel trends twice over, in the rate and in the corpus filter, and the diagnostics can only disqualify or bound the claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive contrast, a shared-trend reading, or no identified effect. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test of the framework rather than an empirical finding.
+A form's frequency may move after a shock (contact with another language, a new medium, a redrawn border, or a government decree), and whether or not the shock caused the change is a natural question to ask. Difference-in-differences is built for that counterfactual, and the discipline it needs is the one applied economics already brings to constructed aggregates like price indices and GDP, where the observed number is not the quantity of interest either. This paper carries that discipline to corpus frequencies, where it's rarely applied and where the corpus's own composition and coding make it bite harder. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating several things a corpus invites merging: the target population, the corpus composition, the measurement procedure, the unit at which the treatment varies, and the unit at which uncertainty is counted. Identifying a change in the rate then needs parallel trends twice over, in the rate and in the corpus filter, and the diagnostics can only disqualify or bound the claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive reading, a shared wave, or not identified. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test of the framework rather than an empirical finding.
 \end{abstract}
 
 \noindent\textbf{Keywords:} difference-in-differences; corpus linguistics; causal inference; corpus composition; linguistic change
@@ -39,6 +59,10 @@ A form's frequency may move after a shock (contact with another language, a new 
 \input{sections/08-worked-example}
 \clearpage
 \input{sections/09-conclusion}
+
+\section*{Data and code availability}
+% On acceptance, a public archive with a DOI (e.g. Zenodo) can replace "supplementary material".
+The simulations of Section~\ref{sec:worked} are reproduced by three short Python scripts (standard library only, fixed random seeds), provided as supplementary material. The reported numbers reproduce exactly from the seeded scripts: \texttt{rung-failure-map.py} (seed~7) generates Table~\ref{tab:failuremap} and the operating-characteristic rates quoted in the text, \texttt{rung1-recovery-sim.py} (seed~2024) the reweighting-recovery estimates, and \texttt{rung1-ladder-sim.py} (seed~12345) the decision-ladder routing check. No human-subjects data is used, and the corpora named in the worked example are illustrative rather than analyzed.
 
 \section*{Acknowledgements}
 
