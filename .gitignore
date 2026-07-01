@@ -17,3 +17,6 @@
 # Local literature PDFs live in the central literature store.
 literature/*.pdf
 literature/**/*.pdf
+
+# Local correspondence and decision notes are kept out of the public repo.
+correspondence/
