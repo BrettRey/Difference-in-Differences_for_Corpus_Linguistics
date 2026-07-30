@@ -1,3 +1,35 @@
+---
+slug: difference-in-differences-for-corpus-linguistics
+kind: paper
+title: 'Difference-in-differences for corpus linguistics: Causal inference, corpus composition, and linguistic
+  change after shocks'
+stage: complete
+external: rejected
+blocked_on:
+- venue-decision
+updated: 2026-07-13
+source:
+- STATUS.md
+- PORTFOLIO.md
+preprints:
+- lingbuzz/010080
+next_action: Choose a retarget venue off the corpus-linguistics-journal track (three desk rejections on
+  centrality across Reynolds methods papers have exhausted it); complete a new venue-decision record before
+  repackaging
+notes: 'Desk-rejected by CLLT (CLLT.2026.0087, 2026-07-01) and then IJCL (IJCL-26173, 2026-07-13), both
+  on centrality/fit -- ''same grounds as Corpora''s rejection of the dative sibling'' (bresnan-dative-alternation-reanalysis).
+  PORTFOLIO.md:41''s own bolded Status-column word is ''**Preprint** (IJCL + CLLT desk-rejected)'', which
+  reads like external: preprint. But SCHEMA.md''s own worked example classifies the structurally identical
+  bresnan-dative-alternation-reanalysis case (PORTFOLIO Status column also reads ''Preprint (Corpora desk-rejected...)'')
+  as stage: complete / external: rejected / blocked_on: venue-decision. Followed that precedent rather
+  than the PORTFOLIO Status-column word: ''Preprint'' there names the current public artifact (it is only
+  living as a LingBuzz posting), not a considered external classification, and the schema''s own value
+  table defines ''rejected'' as exactly this state (''rejected or desk-rejected, no successor submission
+  yet''). PORTFOLIO.md:101 is the earlier, now-superseded Jul 3 row (before the Jul 13 IJCL rejection);
+  it explicitly says ''see Active Submissions row'', pointing to line 41 as current, so this is not a
+  live source conflict.'
+---
+
 # STATUS
 
 **Last updated:** 2026-07-13
