@@ -1,0 +1,91 @@
+\section{Evidence: simulation and a measured filter}
+\label{sec:worked}
+\FloatBarrier
+
+Two kinds of evidence are available for a discipline of this sort, and neither is a completed study of French. A simulation can be checked against a truth the analyst sets, which is the only way to learn what the ladder does when it is wrong. And the composition margins a corpus moves on can be measured directly, in a real archive, before any outcome is counted. This section does both, on the running case: the feminization of profession nouns under francophone language policy.
+
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Estimand ledger for the two designs used here. Declaring these before estimation is the discipline; the contrast on the right is a design probe, not a clean two-group DiD.}
+\label{tab:ledger}
+\begin{tabular}{@{}l p{0.34\textwidth} p{0.34\textwidth}@{}}
+\toprule
+ & \textbf{Simulated two-variety design} & \textbf{Swiss institution contrast} \\
+\midrule
+Target & usage rate $\pi$, edited written standard & language-internal vs polity-driven contrast \\
+Treatment & endorsement at a known date & no within-Switzerland untreated region \\
+Comparison & untreated variety, same language & Swiss language regions \\
+Outcome & feminine marking for female-referent titles and professions & language-specific marking in one institution \\
+Identifying unit & variety & language region \\
+Dependence unit & variety & region \\
+Effect & direct or total, declared & measurement and composition probe \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Operating characteristics of the decision ladder}
+
+The simulated design is the two-variety contrast the running case suggests: a treated variety endorsing feminization at a known date, a comparison variety that does not, edited written registers on both sides, and a handful of identifying units rather than a panel. Truth is set by construction, so each arm has a verdict the ladder ought to return.
+
+A corpus never reveals the population rate, so the one place to check the ladder against truth is a simulation whose truth is set. On controlled data, reweighting recovers the true effect when a composition shift rides an observed stratum: a naive contrast of $+0.13$ on a pure composition artifact returns to zero once the measured mix is held fixed, while drift outside the strata leaves both the naive and reweighted estimate near $+0.15$ (\texttt{rung1-recovery-sim.py}). That's a consistency check, not evidence the diagnostics have power on messy data.
+
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Operating characteristics of the decision ladder on the simulated two-variety design, four hundred replications per scenario (\texttt{rung-failure-map.py}, seeded; mid-range rates carry a couple of points of Monte Carlo error). FP is a false effect claim, FN a missed real effect.}
+\label{tab:failuremap}
+\begin{tabular}{@{}l l r@{}}
+\toprule
+Scenario & Threat dialed up & Misrouting \\
+\midrule
+clean effect                     & none                            & 0\% FN \\
+measured composition artifact    & composition, inside the strata  & 0\% FP \\
+hidden drift, share $0.3$        & composition, outside the strata & 56\% FP \\
+hidden drift, share $0.6$        & the same                        & 99\% FP \\
+hidden drift, share $0.9$        & the same                        & 100\% FP \\
+small effect, sparse ($n=40$)    & thin cells                      & 94\% FN \\
+spillover, exposure measured     & interference                    & 0\% FP \\
+spillover, exposure noisy        & interference, mismeasured       & 8\% FP \\
+selection $\to$ wave (two-group) & timing on its own trajectory    & 100\% FP \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:failuremap} is the point. Measured composition is reweighted away, but drift outside the reweighting strata is invisible, and the false-positive rate climbs from $56\%$ at a hidden share of $0.3$ to near-certainty by $0.6$. Thin cells destroy power: a real effect in a sparse variety is missed in $94$ runs of a hundred.
+
+Interference is caught when exposure is measured well; noisy exposure leaks an $8\%$ false-positive rate. Selection into timing is worst: in a two-group design, a control on its own trajectory is observationally identical to a real effect. The gates and thresholds behind these rates are those of Table~\ref{tab:gates}; what the README adds is the data-generating process behind each scenario, which the operating characteristics summarize without describing.
+
+\subsection{The filter, measured: one institution, moving membership}
+
+The second kind of evidence changes the comparison axis. Trilingual Switzerland holds the polity and federal policy fixed while language varies, so a contrast across the French-, German-, and Italian-speaking regions asks whether change is language-internal or polity-driven. Because the policy reaches every region, none is an untreated control: the result is a design contrast, not a clean policy DiD.
+
+Here the Federal Assembly's \emph{Bulletin officiel} is the natural home: one institution publishing in all three languages, with the Swiss Parliament reporting Official Bulletin coverage from 1891 and all interventions in both chambers from 1971 \citep{swissParliamentPublicAccess}. That puts the 1991 window inside the usable record, but the register carries the lesson. The official record is normalized transcription, not speech.
+
+If the transcription service adopts feminine forms on some date, the recorded frequency jumps with no change in what members said; the measurement link from $\pi$ to corpus $f$ becomes the dominant path. The diagnostic is to date the transcription convention independently and treat its change as a rival event, while also tracking speaker-pool drift as the share of women members changes.
+
+The second of those can be checked before a single word of the record is counted, because the archive publishes it separately. The Federal Assembly's open service returns every mandate ever held, with the member's sex and the dates of joining and leaving \citep{swissParliamentOData}; reconstructing the sitting chamber from those mandates gives the composition of the speaker pool on any date.
+
+\begin{table}[!ht]
+\centering
+\footnotesize
+\caption{Composition of the Swiss National Council on 31 December, reconstructed from published mandate records. The chamber has held 200 seats since 1963, which the reconstruction recovers; the 2020 row returns 84 women of 200, matching the reported outcome of the 2019 federal election. Script: \texttt{speaker-pool-audit.py}.}
+\label{tab:speakerpool}
+\begin{tabular}{@{}l c c c c c c@{}}
+\toprule
+ & 1971 & 1980 & 1985 & 1991 & 1995 & 2000 \\
+\midrule
+Women & 11 & 21 & 21 & 35 & 43 & 46 \\
+Seats & 198 & 200 & 200 & 200 & 200 & 200 \\
+Share & 5.6\% & 10.5\% & 10.5\% & 17.5\% & 21.5\% & 23.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The share of women doubles across the window the policy sits in, from 10.5\% in 1985 to 21.5\% in 1995. Whatever happened to feminine marking in that record over those years, the population being written about changed underneath it, so a rise in the corpus frequency isn't yet evidence about marking rates: part of it, perhaps all of it, is a different set of people being present to be referred to.
+
+That is the diagnostic of Section~\ref{sec:diagnostics} run rather than described, and it cost one script against a public register. It doesn't settle the question. It disqualifies a naive reading and names what a defensible one would have to hold fixed. The other margin, the date the transcription service changed its conventions, isn't in the membership data and would have to come from the archive's own editorial record.
+
+% Optional future extensions: Italian single-shock (Sabatini 1987); Croatian/Serbian breakdown.

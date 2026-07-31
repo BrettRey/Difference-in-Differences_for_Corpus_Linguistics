@@ -1,0 +1,48 @@
+\section{Identification threats specific to corpora}
+\label{sec:threats}
+
+The threats a corpus DiD faces are easiest to read off a small set of causal paths (Figure~\ref{fig:threat-dag}; read each arrow as \enquote{this directly affects that}). They fall into five families: composition, measurement, interference, aggregation, and selection into treatment timing. The first four are inflected, or created, by the corpus; the fifth is the ordinary confounding worry any DiD faces. Each is a way the observed contrast can be mistaken for the policy's effect on the population rate.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[>={Stealth[length=2mm]}, every node/.style={font=\small, align=center}]
+  % top row: ideology and the children that reach f without passing through pi
+  \node[draw, dashed, ellipse, inner sep=1pt] (I)  at (1.6,1.8)   {Ideology};
+  \node[draw, rounded corners]                (Tn) at (4.6,1.8)   {Neighbour policy};
+  \node[draw, rounded corners]                (M)  at (7.6,1.8)   {Coding /\\transcription};
+  % middle row: the causal spine
+  \node[draw, rounded corners]                (T)  at (0.8,0)     {Policy $T$};
+  \node[draw, dashed, ellipse, inner sep=1pt] (pi) at (4.0,0)     {Pop.\ rate $\pi$};
+  \node[draw, thick, rounded corners]         (f)  at (8.4,0)     {Corpus $f$};
+  % bottom row: the composition layer
+  \node[draw, rounded corners]                (Sc) at (1.2,-1.8)  {Non-policy\\composition};
+  \node[draw, rounded corners]                (C)  at (5.0,-1.8)  {Composition $C$};
+  \draw[->] (I) -- (T);
+  \draw[->] (I) -- (pi);
+  \draw[->] (I) -- (Tn);
+  \draw[->] (I) to[bend left=30] (M);
+  \draw[->, thick] (T) -- node[above, font=\scriptsize] {effect} (pi);
+  \draw[->] (T) -- node[midway, right, font=\scriptsize] {mediator} (C);
+  \draw[->] (Sc) -- (C);
+  \draw[->, thick] (pi) -- (f);
+  \draw[->] (C) -- (f);
+  \draw[->] (M) -- (f);
+  \draw[->, dashed] (Tn) -- node[below left, font=\scriptsize, pos=0.5, yshift=6pt] {spillover} (f);
+\end{tikzpicture}
+\caption{The causal paths a corpus DiD contends with: a threat map, not a graph that identifies the effect. Dashed nodes are unobserved. The heavier spine marks the target route from policy to population rate $\pi$ to corpus frequency $f$; the other paths mark composition, measurement, interference, and ideology-driven timing threats. Parallel trends itself isn't a path in a static graph.}
+\label{fig:threat-dag}
+\end{figure}
+
+Composition splits in two. A policy can move the mix it's measured against, the professions in the news or the topics in play, so part of composition lies on the path from treatment to $f$ (the edge $T \to C$). Whether to reweight it away depends on the estimand: for a usage-rate effect it counts as nuisance; for a total-output effect it belongs to the answer.
+
+Non-policy composition drift, such as outlet entry, author turnover, or register mix, is a bias source either way. The two look alike in the data, so the margins to reweight have to be named before the estimate is seen.
+
+Measurement is the second. What the corpus records isn't the latent rate but a coding of it, and the coding can drift: a classifier whose error rate moves with the period, a transcription house style that adopts new forms on a date of its own. When it does, $f$ jumps while $\pi$ holds still. The instrument measuring the outcome has become a moving part \citep{keith2020text}.
+
+Interference breaks the assumption that one variety's treatment leaves the others untouched. Suisse romande shares wire services with France; the same dictionaries and style guides circulate across the francophonie; writers file across borders. A not-yet-treated control is then lightly dosed. Shared wire copy can be held aside and deduplicated; the other channels can't, so the estimand has to name whether it seeks the policy's direct effect net of diffusion or its total effect including it.
+
+Aggregation is the easiest to overlook. The level at which counts are summed into observations (token, document, outlet-month, title-variety-year) fixes weights and denominators. A few prolific outlets or a burst of one topic can carry a token-level rate that a cell-level rate wouldn't. The aggregation unit is a modelling choice with identifying consequences, not bookkeeping.
+
+Selection into treatment timing is the deepest threat, and it's the corpus form of a problem that recurs wherever a comparison group has to stand in for a counterfactual rather than being assigned to it \citep{OlsonDoyleJiang2026}. A polity tends to legislate when its gender politics have already moved, and that same movement shifts usage, so adoption timing is correlated with the outcome's trajectory. No estimator removes that fork; in a two-group design it's observationally indistinguishable from a real effect.
+
+That last threat is where the figure reaches its limit. A graph can inventory paths, but identification turns on a counterfactual trend: whether usage and the corpus filter would have moved in parallel absent the policy. The diagnostics, not the diagram, carry that weight.

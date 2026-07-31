@@ -1,0 +1,73 @@
+\section{The DiD estimand in corpus terms}
+\label{sec:estimand}
+
+DiD asks one question: across a shock, did the treated series and a comparison series no shock touched change differently? Take the treated variety's before-to-after change in the outcome, subtract the control's, and under a single assumption (that absent the shock the two would have moved in parallel) the remainder estimates the average treatment effect on the treated (ATT) \citep{RothSantAnnaBilinskiPoe2023}.
+
+Say feminine marking rose twelve points in the treated variety across the window and five in the comparison: DiD reads the policy effect as the seven-point excess, on the assumption that without the policy the treated variety would have risen by the same five. Everything corpus-specific lives in what fills \enquote{outcome} and \enquote{series}.
+
+That last clause is where the canonical panel idealization, the clean grid of the same units measured period after period, breaks down for a corpus as for any constructed aggregate. What a finite corpus yields is a realized sample proportion $\hat f$; the quantity of interest, the estimand, is the latent rate $\pi$ at which a specified population uses the form in a specified context, for the running case the share of profession- and title-noun tokens with a female referent that take feminine marking, in a named text population.
+
+Let $f$ be the expected corpus frequency: the proportion induced by the corpus and coding process before sampling noise. Then $\hat f = f + \epsilon$ and $f = \pi + b$, with $b$ collecting composition (whose texts, which genres, what topics) and measurement (how the form was coded or transcribed). $b$ is the construct-irrelevant part of Section~\ref{sec:problem}, written as a quantity: the amount by which the corpus's own construction moves the score away from the rate the claim is about.
+
+Feminine marking can climb in the corpus series with no change in anyone's usage at all: a paper that runs more profiles of women in the professions, or a transcription service that starts spelling out feminine titles it used to abbreviate, moves $f$ while $\pi$ holds still. Read $b$ as the gap itself, $b = f - \pi$: not a random error that more data averages away, but whatever composition and measurement added, fixed once the texts and the coding are.
+
+Collecting more tokens shrinks $\epsilon$ around $f$ without touching $b$; the cell-level uncertainty of Section~\ref{sec:modern} stays separate from $b$, the corpus filter: the standing contribution the corpus's own construction makes to the score. The outcome estimated from the page isn't the quantity the claim is about.
+
+Differencing doesn't remove $b$ either. The mechanism is easiest to see away from the running case, where the numbers can be chosen rather than estimated, so take a curriculum reform in one region's schools, textbook corpora sampled before and after, and a second region with no reform as the comparison. Suppose the feature of interest runs at 10\% in science textbooks and 30\% in language-arts textbooks before the reform, and that it rises by two points in both subjects, in both regions, across the window. Usage is genuinely changing, and changing identically on the two sides, so the reform's true effect is zero. Suppose too that publishers in both regions were moving their lists toward language arts over these years, and that the treated region's collection followed further than the comparison region's: science falls from half the corpus to a fifth there, and from a half to two fifths in the comparison (Table~\ref{tab:composition-artifact}).
+
+\begin{table}[!ht]
+\centering
+\footnotesize
+\caption{Composition drift manufacturing a difference-in-differences effect. The feature runs at 10\% in science and 30\% in language arts before the reform and rises two points in both subjects, in both regions, so the reform's true effect is zero and the true rate rises in parallel on the two sides.}
+\label{tab:composition-artifact}
+\begin{tabular}{@{}l c c c@{}}
+\toprule
+ & Science share of corpus & True rate & Observed rate \\
+\midrule
+Treated, before    & 0.50 & 0.200 & 0.200 \\
+Treated, after     & 0.20 & 0.220 & 0.280 \\
+Comparison, before & 0.50 & 0.200 & 0.200 \\
+Comparison, after  & 0.40 & 0.220 & 0.240 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The true rate rises two points on both sides, so parallel trends holds in the quantity the claim is about, and holds substantively rather than by both series standing still. The observed treated series nonetheless rises eight points against the comparison's four, and DiD reports the four-point excess as the reform's effect. There was no effect; every point of it is $b$.
+
+This is aggregation bias with a time dimension, Simpson's paradox in a panel, and it's worth naming as such rather than presenting the mechanism as new. What makes it a corpus problem is who sets the weights. The researcher doesn't choose the mix: archivists, publishers, and digitization projects do, across decades, for reasons that have nothing to do with any study.
+
+Two separate things follow, and they're easy to run together. The \emph{diagnostic} is to compare the composition margins across the series: a science share that moved thirty points on one side and ten on the other already puts parallel trends in $b$ in doubt, and that comparison needs no knowledge of the true effect. The \emph{repair} is to standardize both series to a common composition before differencing, which here returns exactly zero, and returns zero for any reference mix.
+
+The example is deliberately the easy case, because subject area is recorded and can be reweighted. Where composition moves on a margin the metadata doesn't carry, the same arithmetic runs and neither the diagnostic nor the repair is available. Differencing removes whatever the two series share, so it removes the level of $b$ and any drift common to both; what it can't remove is a \emph{differential} drift, which is set by the archives rather than by the language.
+
+The residual isn't empty. Stratify the texts by the margins composition moves on (outlet, profession, topic). Within each stratum $s$, let $\pi_s$ be the true rate, $r_s$ the rate the corpus records, $q_s$ the corpus's share of $s$, and $p_s$ the target population's. Then $f = \sum_s q_s r_s$ and $\pi = \sum_s p_s \pi_s$, so
+
+\[
+b = \underbrace{\sum_s (q_s - p_s)\,\pi_s}_{\text{composition}} + \underbrace{\sum_s q_s\,(r_s - \pi_s)}_{\text{measurement}}.
+\]
+
+Reweighting sets $q_s$ to $p_s$ on the strata it can see, zeroing the first term; the second survives. The part of it the strata are too coarse to resolve is the hidden drift of Section~\ref{sec:worked}, and the simulations are built on this split.
+
+Differencing is linear, so the DiD of the expected corpus frequency separates into the DiD of $\pi$ and that of $b$, $\mathrm{DiD}(f) = \mathrm{DiD}(\pi) + \mathrm{DiD}(b)$. The first term, under parallel trends in the rate, is the target effect. For a usage-rate estimand, the second is contamination, and it vanishes only under a second parallel-trends assumption, $\mathrm{DiD}(b) = 0$: that composition and measurement would have drifted alike in both series.
+
+A corpus design needs parallel trends twice over, in $\pi$ and in $b$, where the canonical panel setting quietly assumes the second away.
+
+Readers who work with tests and scales have met this requirement before, under another name. Comparing group means on an instrument presupposes \term{measurement invariance}: that the instrument relates to the construct the same way in each group, so a difference in scores is a difference in the thing measured and not in how it was measured \citep{meredith1993measurementInvariance,millsap2011measurementInvariance}. Without invariance the comparison isn't interpretable, however large the samples. Parallel trends in $b$ is that requirement moved from groups to periods and from levels to changes: the corpus has to relate to usage the same way on both sides of the contrast, or at least depart from it in the same direction and degree. A corpus assembled differently before and after the shock is a scale rescored between administrations. Picture one variety's archive getting re-digitized and re-tagged halfway through the window while the other's is left alone: the two corpora's coding has now drifted apart even if actual usage tracked perfectly, and that drift would enter the estimate as if it were the policy's effect.
+
+Both are claims about an unobserved counterfactual: pre-treatment comparisons can discredit them but can't verify them. And since only $\hat f$, an estimate of $f$, is observed, a flat pre-period in the observed series is consistent with non-parallel trends in $\pi$ and in $b$ that cancel, so the pre-period tests the two assumptions jointly, never apart.
+
+Neither half is optional, and the temptations run both ways. Once the composition term is on the table it's easy to treat it as the whole problem and forget the ordinary assumption about the rate; it's equally easy to wave at adjusting for composition and assume the rate takes care of itself. Both shortcuts fail. The observed contrast recovers the effect on $\pi$ only when the rate would have moved in parallel \emph{and} the bias would have moved in parallel.
+
+One refinement decides how the corpus-filter term is handled, turning on which effect is wanted. The filter reaches the observed contrast two ways: a non-policy drift, which the second assumption requires to be parallel, and a policy-induced shift, the policy changing what gets written rather than how a given referent is marked.
+
+For an effect on the usage rate $\pi$, that second shift is nuisance as well, even though the policy caused it: a topic or profession mix that moved gets reweighted to a fixed mix, isolating the marking rate. The other estimand, sometimes the one actually wanted, is the policy's total effect on the observed output. It keeps the writing that the policy moved, so that same shift is part of the answer, and reweighting it away would subtract a piece.
+
+The two estimands differ exactly by the policy-to-composition path, and a design that doesn't say which it means can defend neither. The one margin neither estimand touches is the outcome margin itself: the realization strategy of Section~\ref{sec:outcomes}. Condition there and the effect itself is removed.
+
+Naming the estimand forces apart five units a corpus invites running together. The \term{linguistic unit} is the variable whose rate is at issue (feminine marking of a profession noun for a female referent). The \term{measurement unit} is what gets counted to estimate that rate (eligible tokens, or documents). The \term{aggregation unit} is the cell those counts are summed into before estimation (an outlet-month, a title-variety-year), which sets the weights and denominators and can quietly change the estimand.
+
+The \term{identifying unit} is where the treatment varies (the variety or polity). The \term{dependence unit} is the level at which residuals correlate and inference is clustered, here the variety again; with only a few varieties the usual large-sample standard errors don't hold, which is the inference problem Section~\ref{sec:modern} takes up.
+
+Merging them is dangerous because the five sit at wildly different scales. A corpus offers millions of measurement units and, often, two or three identifying units; the latter govern how much can be concluded. Counting tokens as though they were the sample size manufactures a precision the design doesn't have \citep{BertrandDufloMullainathan2004}: it's like claiming a hairline margin of error on a two-person poll because each person answered a thousand questions.
+
+Here, the target is the effect on $\pi$; the price is parallel trends in both $\pi$ and $b$. The diagnostics of Section~\ref{sec:diagnostics} can falsify that assumption or bound how far it may fail, never confirm it, and Section~\ref{sec:worked} puts the discipline to work, each design declaring its estimand in a ledger (Table~\ref{tab:ledger}) before anything is estimated.

@@ -1,0 +1,78 @@
+\section{Diagnostics}
+\label{sec:diagnostics}
+
+A diagnostic here does two things and not a third. It can disqualify a causal reading, or bound how far the identifying assumption may bend before the result flips. It can't confirm parallel trends, since the counterfactual it concerns is never observed. Diagnostics are pre-specified tests, not a checklist run after the estimate to bless it. What has to be on the record before any of them runs is set out in Table~\ref{tab:reporting}.
+
+The discipline starts before any test, with the roles. Each textual feature should be assigned a job: does it measure the outcome, identify the referent that conditions the outcome, index composition, or sit downstream as part of the outcome itself? No feature can hold two of these jobs at once. Conditioning on a downstream realization strategy subtracts the effect; conditioning on a drifting measurement cue imports drift; and reweighting follows from the declared estimand.
+
+\begin{table}[t]
+\centering
+\footnotesize
+\caption{Minimum report for a corpus DiD. The point is to make the identifying claim auditable before the estimate is read.}
+\label{tab:reporting}
+\begin{tabular}{@{}p{0.28\textwidth} p{0.64\textwidth}@{}}
+\toprule
+\textbf{Item} & \textbf{What to state} \\
+\midrule
+Estimand & population usage rate, corpus-output effect, or design contrast \\
+Treatment & act, date, force, timing theory, and expected sign \\
+Target population & variety, register, period, conditioning context, and denominator \\
+Composition margins & margins fixed, reweighted, left in the estimand, or unavailable \\
+Measurement audit & coding, transcription, or classifier checks by period and series \\
+Identifying unit & unit where treatment varies, such as polity, variety, outlet, or platform \\
+Dependence unit & level for clustering, randomization, or uncertainty reporting \\
+Interference check & shared source, wire copy, exposure, or diffusion diagnostic \\
+Sensitivity benchmark & pre-specified plausible violation of parallel trends \\
+Permitted verdict & \term{bounded estimate}, \term{descriptive reading}, \term{shared wave}, or \term{not identified} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The first diagnostic family tests the pre-period. Event-study estimates against not-yet-treated comparisons \citep{SunAbraham2021,BorusyakJaravelSpiess2024} show whether the series moved together before the shock, but a flat pre-period only fails to discredit parallel trends \citep{RothSantAnnaBilinskiPoe2023}. The sharper question is onset versus acceleration: does the marking rate change at the treatment date, or was the divergence already under way?
+
+That distinction is easy to nod at and hard to hold onto, so it's worth naming the two ways a clean pre-period misleads. The first is cancellation. What the pre-period exposes is $\hat f$, which carries $\pi$ and $b$ together; a usage rate drifting up in the treated series and a composition drifting down can sum to a flat line. Flatness then reports that two movements happened to offset, not that neither occurred. The second is timing. Nothing obliges a confound to announce itself early, and the ones that worry a corpus analyst rarely do: an archive re-digitized in the year of the reform, a wire service taken on at the same moment, a publisher's list that turned when the policy did. Drift that begins where the test stops looking leaves no pre-period signature at all.
+
+So a pre-period test is a screen, not a licence, and the asymmetry should be visible in how the result is written. Failing it is close to decisive. Passing it is weak evidence, and it belongs in the report as a check that didn't fire rather than as grounds for believing the assumption holds.
+
+The second family breaks the design on purpose. A placebo date, a near-null policy used as a negative control, or a shuffled treatment label should return nothing. With a handful of identifying units, these permutations calibrate the size of contrast the procedure can manufacture; they aren't a $p$-value from an assignment that was never random \citep{BertrandDufloMullainathan2004}.
+
+The third family withholds parts of the corpus. Leave-one-source-out re-estimation asks whether the effect lives in the whole series or in one outlet, author, region, wire feed, or burst of reprinted copy. An estimate carried by one source is idiosyncrasy or interference, not an effect.
+
+The fourth family probes the corpus filter. Reweighting to a fixed composition removes a measured artifact on pre-committed margins; policy-moved mix is reweighted away for a usage effect and kept for a total-output effect. Re-running the analysis strategy by strategy is the parallel outcome check: if low-cost agreement and high-cost derivation move differently, the assumption that they're exchangeable signs of one change has failed.
+
+The last family quantifies fragility. Rather than assert parallel trends, sensitivity analysis asks how large a violation would have to be to overturn the result and compares that breakdown value to a pre-specified benchmark, such as the largest trend swing in an untreated stretch or untreated variety \citep{RambachanRoth2023}. A result that survives only a smaller violation hasn't earned its causal claim; one that survives a larger violation earns a bounded claim, reported as a sensitivity interval, not a point.
+
+The benchmark has a blind spot: it sees only violations that leave a footprint in the windows used to build it. Drift confined to the treated post-period can clear the bar untouched, which is the failure the simulations of Section~\ref{sec:worked} quantify. The resulting claim is bounded against named and benchmarked confounds, not against every possible one.
+
+The checks feed one rule. A date-aligned divergence that survives composition, interference, onset, and sensitivity checks licenses a \term{bounded estimate}, scoped to the register measured. A divergence leaning on an ambiguous check licenses a \term{descriptive reading}. Calendar-time co-movement with no date-aligned divergence is a \term{shared wave}. A pre-treatment divergence, an effect carried by shared-source material, unanswerable selection into timing, or a breakdown value below a plausible confound forces \term{not identified}. The ladder's point is that a downgrade is a result: a corpus DiD succeeds when it returns the right verdict, not when it returns an effect.
+
+Stated that way the rule is a policy, not yet a procedure. What makes it operable is fixing each gate's statistic and its threshold before the data is seen. Table~\ref{tab:gates} gives the instantiation used for the worked example, the same logic all three simulation scripts apply.
+
+\begin{table}[!ht]
+\centering
+\footnotesize
+\caption{The automated gates, in order, as applied by all three simulation scripts. The first gate to trip decides. Thresholds were fixed against the design before any run; the placebo band is calibrated from the data rather than chosen. Gate~2 branches rather than deciding, and two of the four permitted verdicts are out of reach here.}
+\label{tab:gates}
+\begin{tabular}{@{}l p{0.34\textwidth} l p{0.28\textwidth}@{}}
+\toprule
+& \textbf{Statistic} & \textbf{Trips at} & \textbf{Then} \\
+\midrule
+1 & difference in pre-period slopes, treated minus comparison & $>0.03$ & \emph{not identified}: the divergence predates the treatment date \\
+2 & shift in the pre-committed composition proxy, pre to post & $>0.05$ & branch: reweight to a fixed mix, then re-enter at gate~3 \\
+3 & share of the treated series carried by shared-source material & $>0.25$ & \emph{not identified}: interference \\
+4 & $|\mathrm{DiD}|$ against the largest placebo-date contrast & $\leq 1.5\,\text{floor} + 0.01$ & \emph{bounded estimate} around zero \\
+\midrule
+& none tripped & & \emph{bounded estimate} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three things about those numbers. They're ordered, and the first gate to trip decides: a pre-period divergence stops the analysis before composition is examined at all, because there's nothing left to attribute. They're also setting-specific. The values 0.03, 0.05, and 0.25 were fixed against this design before any run and carry no authority outside it. What transfers is the requirement to commit to them in advance and record them where a reviewer can check them, not the numbers themselves.
+
+The fourth gate differs in kind. Instead of a chosen constant, its band is calibrated from the data: the analysis is re-run at placebo dates away from the real shock (here 1988, 2000, 2001, and 2002), and the largest contrast the pipeline manufactures with no shock present becomes the floor. An estimate inside 1.5 times that floor is reported as a bounded estimate around zero rather than as an effect. This calibrates how much movement the procedure invents; it isn't a $p$-value, since with two identifying units there's no assignment to randomize over \citep{BertrandDufloMullainathan2004}.
+
+The second gate returns a repair rather than a verdict, which is the one place the ladder branches instead of terminating. A measured shift on a pre-committed margin disqualifies the naive estimate but routes to reweighting, and the reweighted estimate re-enters at the gate below. \term{Not identified} is reserved for a margin that was never recorded, which is exactly the case the failure map shows surviving undetected: a proxy that doesn't exist can't trip a gate.
+
+Two of the four permitted verdicts are out of the gates' reach, and saying so is more useful than implying the procedure is complete. A \term{descriptive reading} follows from a check that came out ambiguous rather than passed or failed, and that judgment is deliberately left to the analyst: a gate that fired on ambiguity would be settling the question it exists to raise. And a bounded estimate sitting around zero can't be told from a \term{shared wave} by these statistics, since both present as a small contrast; separating them needs the calendar-time comparison, which is only sharp once several polities adopt on different dates. So the automated gates are a proper part of the ladder rather than the whole of it, and the two designs of Section~\ref{sec:worked} differ in exactly this way: a set of gates can be individually sound and still lack the information to draw every distinction the verdicts require.
+
+\term{Not identified} is where the discipline meets resistance, because the reporting conventions of language research give an author no template for such a paper. It has a shape all the same. State the estimand that was sought and the comparison that would have identified it. Report the descriptive series, which stay informative about what the corpus holds even when they're silent about why it moved. Name the check that failed, and the size of violation that would have been required to overturn the result, so that a later study knows what it has to beat. Then state what would identify the effect: which comparison variety, which composition margin recorded at collection, how long a pre-period. That last group is worth separating out, because it is the one thing in this paper a researcher can act on before having a problem. Composition margins are cheap to record while a corpus is being built and expensive or impossible to reconstruct afterwards: which outlet, which section, which author, which cohort, which assignment, whatever the sampling frame actually varies on. A study that logs them prospectively keeps the reweighting repair available; a study that doesn't has to hope the margin it needs was recorded for some other reason. Most of the corpora this method would be applied to already exist, so the advice arrives too late for them, which is exactly why it belongs in the design of the next one. A paper written this way has produced a result rather than a null. It's shown that a claim in circulation isn't supported by the evidence usually cited for it, and specified the study that would settle the question. That's worth more than a point estimate nobody can defend, and it's what this field is currently least equipped to publish.

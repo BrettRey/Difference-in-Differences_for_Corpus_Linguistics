@@ -1,6 +1,6 @@
 # Portal fields: Research Methods in Applied Linguistics, 2026-07-31
 
-<!-- SUMMARY: Every value the RMAL portal will ask for, with a source pointer, so the portal session is transcription rather than composition · status: incomplete, see §11 · updated: 2026-07-31 -->
+<!-- SUMMARY: Every value the RMAL portal will ask for, with a source pointer, so the portal session is transcription rather than composition · status: two items open, see §11 · updated: 2026-07-31 -->
 
 **Rule:** a value with no source pointer counts as unchecked. Do not type any field
 from memory or from the CLLT/IJCL submissions.
@@ -40,7 +40,8 @@ the submission day.
 | ORCID | 0000-0003-0073-7195 | title-page.md |
 | Corresponding | yes | title-page.md |
 | Email | brett.reynolds@humber.ca | title-page.md |
-| Department, postal code | NOT RECORDED | see §11 |
+| Postal address | Humber Polytechnic, 205 Humber College Boulevard, Toronto, Ontario M9W 5L7, Canada | recovered 2026-07-31 from prior submission materials |
+| Department | deliberately blank | no prior submission from this project carries one; do not invent |
 
 ## 4. Files and item types
 
@@ -48,11 +49,11 @@ the submission day.
 |---|---|---|
 | main-blind.pdf | Manuscript (anonymized) | yes, verified leak-free |
 | main.tex + sections/ + references | Source files (**.tex required, PDF not acceptable as source**) | yes; bundle not yet assembled |
-| submission/title-page.md -> PDF | Title Page | needs rebuild with the new title |
+| submission/title-page.pdf | Title Page | yes, rebuilt 2026-07-31 with the current title |
 | submission/declarations.md | Declarations | needs re-check against RMAL wording |
 | supplement/supplementary-designs.pdf | Supplementary material | yes |
 | simulations/*.py | Supplementary material | 4 scripts incl. speaker-pool-audit.py |
-| Cover letter | Cover letter | NOT WRITTEN for RMAL |
+| submission/cover-letter-rmal.pdf | Cover letter | yes, written 2026-07-31 |
 
 ## 5. Declarations, final wording
 
@@ -71,12 +72,21 @@ the submission day.
 
 Suggested: none. Do not invent names. Leave to the editor unless the portal requires entries.
 
-## 11. Unresolved, blocking the portal session
+## 11. Status of the seven blockers
 
-1. **Live submission route.** `editorialmanager.com/rmal` returns "Site under development. Do not use for live manuscript submission." Reach the portal via the journal's own Submit link on ScienceDirect and record the real URL here.
-2. **Article-type risk.** Research Article caps at 10,000 and the manuscript is at 9,770. Brief Report caps at 5,000 and explicitly absorbs "commentaries... not based on empirical studies". The simulation study plus the measured archive margin are the defence for the Research Article reading.
-3. **Cover letter** for RMAL not written.
-4. **Title page** still carries the old title; rebuild before upload.
-5. **Author department and postal code** not recorded anywhere local.
-6. **Open access / licence choice** not decided; APC applicability unknown.
-7. **LingBuzz preprint** decision: refresh to the current version, or leave and accept that the public copy differs.
+Worked 2026-07-31. Two remain, and both need Brett rather than more checking.
+
+| | Item | Status |
+|---|---|---|
+| 1 | Live submission route | **OPEN, needs Brett.** `editorialmanager.com/rmal` reports "site under development"; the URL is not publicly indexed and ScienceDirect refuses automated fetch. One click from the journal's Submit link on ScienceDirect will resolve it. Record the real URL here when you have it. |
+| 2 | Article-type risk | **CLOSED as a decision, risk carried.** Research Article, 10,000 cap. The defence for that reading against Brief Report's 5,000 cap is the simulation study plus the measured archive margin, both now visible in the abstract. |
+| 3 | RMAL cover letter | **CLOSED.** `submission/cover-letter-rmal.{md,pdf}`, 514 words. Leads on the applied-linguistics inference problem, uses the journal's own scope wording about methods imported from other disciplines, and discloses both the preprint and the AI use. |
+| 4 | Title page | **CLOSED.** Rebuilt with the current title, running head, full postal address, and a note that the AI declaration now lives in the manuscript rather than the cover letter. |
+| 5 | Department and postal code | **PARTLY CLOSED.** Address recovered. Department left blank on purpose: no prior submission from this project carries one, so it is not invented here. If the portal makes it required, confirm the current unit before typing. |
+| 6 | Open access / licence / APC | **NOT A SUBMISSION FIELD.** The guide states authors complete the publishing agreement *after acceptance*. Nothing to decide now. |
+| 7 | LingBuzz preprint | **OPEN, needs Brett.** The public copy is the pre-cut CLLT version, roughly 11,400 words and several revisions behind. Refreshing it is a public action and his call. Preprints do not count as prior publication for RMAL, so either choice is compliant; the argument for refreshing is that a reviewer or reader following the link currently reads a different paper. The current build is ready to upload if wanted. |
+
+## 12. Remaining pre-submission tasks
+
+- Assemble the `.tex` source bundle (main.tex, sections/, references, house-style inputs). RMAL will not accept a PDF as source.
+- Re-confirm the guide's limits on the submission day; they change.
