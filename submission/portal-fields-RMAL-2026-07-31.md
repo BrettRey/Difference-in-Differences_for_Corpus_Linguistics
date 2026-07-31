@@ -1,6 +1,6 @@
 # Portal fields: Research Methods in Applied Linguistics, 2026-07-31
 
-<!-- SUMMARY: Every value the RMAL portal will ask for, with a source pointer, so the portal session is transcription rather than composition · status: two items open, see §11 · updated: 2026-07-31 -->
+<!-- SUMMARY: Every value the RMAL portal will ask for, with a source pointer, so the portal session is transcription rather than composition · status: one item open, see §11 · updated: 2026-07-31 -->
 
 **Rule:** a value with no source pointer counts as unchecked. Do not type any field
 from memory or from the CLLT/IJCL submissions.
@@ -78,7 +78,7 @@ Worked 2026-07-31. Two remain, and both need Brett rather than more checking.
 
 | | Item | Status |
 |---|---|---|
-| 1 | Live submission route | **OPEN, needs Brett.** `editorialmanager.com/rmal` reports "site under development"; the URL is not publicly indexed and ScienceDirect refuses automated fetch. One click from the journal's Submit link on ScienceDirect will resolve it. Record the real URL here when you have it. |
+| 1 | Live submission route | **CLOSED 2026-07-31.** `https://submit.elsevier.com/RMAL` (supplied by Brett; verified HTTP 200). Not Editorial Manager, which is why the `editorialmanager.com/rmal` instance was a dead end. |
 | 2 | Article-type risk | **CLOSED as a decision, risk carried.** Research Article, 10,000 cap. The defence for that reading against Brief Report's 5,000 cap is the simulation study plus the measured archive margin, both now visible in the abstract. |
 | 3 | RMAL cover letter | **CLOSED.** `submission/cover-letter-rmal.{md,pdf}`, 514 words. Leads on the applied-linguistics inference problem, uses the journal's own scope wording about methods imported from other disciplines, and discloses both the preprint and the AI use. |
 | 4 | Title page | **CLOSED.** Rebuilt with the current title, running head, full postal address, and a note that the AI declaration now lives in the manuscript rather than the cover letter. |
