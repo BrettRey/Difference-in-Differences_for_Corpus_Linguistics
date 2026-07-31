@@ -1,18 +1,28 @@
 # Submission Materials
 
-Target venue: **CLLT** (*Corpus Linguistics and Linguistic Theory*, De Gruyter Mouton), ScholarOne.
+Target venue: **International Journal of Corpus Linguistics** (IJCL,
+Benjamins). Fallback: **Corpora** (Edinburgh UP).
 
-## Contents
+## Current IJCL Files
 
-- `copy-paste.md` — plain-text title, abstract (199 w), keywords, and declarations for the ScholarOne form fields (kept in sync with `main.tex`).
-- `cover-letter.md` — cover letter draft (review/personalize before sending).
-- `cllt-requirements.md` — the journal's author guidelines, summarized.
-- `checklist.md` — pre-submission checklist and current status.
+- `copy-paste.md` — plain-text title, abstract, keywords, and declarations for the submission form.
+- `cover-letter-ijcl.md` — active cover letter draft for IJCL.
+- `submission-notes.md` — current technical gate and remaining venue-configuration notes.
+- `checklist.md` — active pre-submission checklist.
+- `simulations-supplement.zip` — three deterministic Python scripts plus `simulations/README.md`.
+- `title-page.md`, `declarations.md`, `author-bio.md` — reusable metadata drafts; verify against the live Benjamins prompts before upload.
 
-## Upload package (at submission)
+## Upload Package
 
 - `../main-blind.pdf` — anonymized manuscript for review (`make blind`; verified leak-free).
-- `../simulations/` — three deterministic Python scripts + README (supplementary material / reproducibility).
-- cover letter (paste from `cover-letter.md` or convert to PDF).
+- `simulations-supplement.zip` — supplementary reproducibility code.
+- Cover letter text from `cover-letter-ijcl.md`.
+- Title page/declarations/author bio only if the live Benjamins form asks for separate files.
 
-Do not add generated build artifacts unless a submission package requires them.
+## Archived CLLT Materials
+
+- `cover-letter.md`
+- `cllt-requirements.md`
+- `cover-letter.pdf`
+
+Do not use the archived CLLT files for IJCL unless deliberately reconstructing the earlier CLLT submission.

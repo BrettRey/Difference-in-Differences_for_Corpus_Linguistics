@@ -21,15 +21,15 @@ reported numbers exactly.
 
 ## What each script does
 
-### `rung-failure-map.py` (seed 7) — Table 2
+### `rung-failure-map.py` (seed 7) — failure-map table
 Operating characteristics of the ladder under messy conditions: 400 replications
 per scenario across the realistic failure dimensions (hidden composition/editing
 drift *outside* the reweighting strata, small/sparse effects, interference,
 selection-into-timing). Reports the misroute rate — false-effect claims (FP) and
-missed real effects (FN) — for each scenario. Generates the rates in **Table 2**
-and the 56% / 94% / 8% figures quoted in §8.3.
+missed real effects (FN) — for each scenario. Generates the rates in the
+failure-map table and the 56% / 94% / 8% figures quoted in the worked example.
 
-### `rung1-recovery-sim.py` (seed 2024) — recovery estimates in §8.3
+### `rung1-recovery-sim.py` (seed 2024) — recovery estimates in the worked example
 Does reweighting *recover* the truth, not merely flag the artifact? Three arms: a
 real effect (`benign`), a pure composition shift on an observable stratum
 (`malign_rate`), and an unobserved within-stratum drift (`malign_unmeasured`).
@@ -79,6 +79,6 @@ not part of the automated routine.
 
 | Reported in the paper                         | Script                  | Seed  |
 |-----------------------------------------------|-------------------------|-------|
-| Table 2 (failure map)                         | `rung-failure-map.py`   | 7     |
-| §8.3 recovery estimates (+0.13, ≈0, +0.15)    | `rung1-recovery-sim.py` | 2024  |
+| failure-map table                             | `rung-failure-map.py`   | 7     |
+| worked-example recovery estimates (+0.13, ≈0, +0.15) | `rung1-recovery-sim.py` | 2024  |
 | ladder routing validation                     | `rung1-ladder-sim.py`   | 12345 |

@@ -20,3 +20,11 @@ literature/**/*.pdf
 
 # Local correspondence and decision notes are kept out of the public repo.
 correspondence/
+
+# Internal deliberation. Not for a public repo.
+# Review boards contain simulated personas of real editorial roles and raw model
+# output; the venue records contain manuscript tactics, desk-rejection risk
+# assessments, acceptance forecasts, and verbatim editorial correspondence.
+reviews/
+submission/venue-decision-*.md
+submission/venue-consultation-*.md

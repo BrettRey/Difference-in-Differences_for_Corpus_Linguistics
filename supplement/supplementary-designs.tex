@@ -1,0 +1,84 @@
+% Supplementary material for "Did the intervention change usage?"
+% Two designs cut from the article at revision. They are kept here because the
+% estimand ledger they illustrate is the article's method, and because naming what
+% data a claim would need is itself part of the discipline the article argues for.
+%
+% They are NOT proposals for studies. Both depend on commercial newspaper archives
+% that are not openly accessible, which is why neither appears in the article and
+% why neither was run.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[style=apa,natbib=true,backend=biber]{biblatex}
+\addbibresource{../references.bib}
+\addbibresource{../references-local.bib}
+\usepackage{placeins}
+\newcommand{\mention}[1]{\textit{#1}}
+\newcommand{\term}[1]{\textsc{#1}}
+\title{Supplementary material: two further comparison designs}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+These two designs were developed alongside the article and cut from it. The article
+demonstrates its method on a simulated two-variety contrast and on a measured
+composition margin in the Swiss Federal Assembly record. The designs below extend the
+same estimand ledger to comparison structures the article does not use.
+
+Neither has been run, and neither can be run cheaply: both rest on commercial
+francophone newspaper archives that are licensed rather than open. That is the reason
+they are here rather than in the article. What they are for is the ledger: each states
+a target, a treatment, a comparison, an outcome, an identifying unit, a dependence unit,
+and the effect it would license, before any estimate exists. Stating those before
+looking is the article's actual proposal, and these show what it produces on designs
+whose honest modal verdict is often \emph{not identified}.
+
+\section*{Design A: the clean contrast and the spillover problem}
+
+In the first design, the clean contrast pairs varieties that share a language and differ in policy. French-speaking Switzerland endorsed feminizing profession nouns through the Federal Chancellery's 1991 report on non-sexist administrative language \citep{chancellerie1991} and \textcite{Moreau1991}'s professions dictionary. France is the comparison, but not a pristine control. Its 1986 Fabius circular urged the same forms yet went largely unenforced until the 1998 Jospin circular \citep{BurnettBonami2019}; I treat 1986 as a near-null policy, take 1991--1997 as the Swiss-treated/French-not-yet window, and hold 1998 as a follow-up event.
+
+The outcome is the share of profession and title nouns that take feminine marking for a female referent, counted strategy-agnostically at first and then by strategy. The split matters because Switzerland, France, Quebec, and Belgium favour different forms \citep{Dawes2003}: a feminine article on an epicene noun (\mention{la ministre}) and a distinct feminine noun (\mention{autrice}) aren't automatically exchangeable.
+
+Female reference can often be recovered from independent cues such as \mention{Madame} with a title, but that convenience narrows the estimand to formal address contexts and imports any drift in the cue into the measurement term.
+
+Because the corpora in this rung are edited newspapers, the target is the edited written standard, not spontaneous usage. Sparse title/outlet cells can be stabilized with partial pooling inside each variety, but the causal contrast still has only two identifying units. The first diagnostic is onset: Suisse romande should accelerate away from France after 1991 while the two ran together before. If the gap was already opening, 1991 is a waypoint on a curve, not an onset; if both series rise together in calendar time, the result is a shared francophone wave.
+
+Interference is this design's distinctive threat. Suisse romande reads French media, and both series can carry shared wire copy. The report names the estimand as direct or total, reports how much shared material each series carries, holds shared-wire material aside for a separate estimate, and deduplicates reprints. A jump that lives only in shared material is diffusion, not a Swiss policy effect. Placebo dates, the 1986 near-null policy, and treatment-label permutations calibrate the procedure, but with two varieties they're falsification checks, not powered inference.
+
+Before estimation, the permitted verdict is fixed. A 1991 divergence that survives onset, composition, shared-source, and sensitivity checks licenses a bounded estimate for the edited written standard. Ambiguous checks license a descriptive reading. Calendar-time co-movement is a shared wave. Pre-1991 divergence, shared-source dependence, or a plausible trend violation that overturns the result forces not identified. The gates that decide the automatable part of this, with their thresholds, are those of Table~\ref{tab:gates}; separating a bounded estimate around zero from a shared wave isn't among them, which is one of the things the second rung is for.
+
+\section*{Design B: more polities, less exogeneity}
+
+Adding Quebec and Belgium gives staggered policy dates: Quebec in 1979, Switzerland in 1991, Belgium in 1993, and France in 1998. The Quebec and Belgium dates are grounded in primary instruments \citep{oqlf1979,belgique1993decret}. The design now calls for group-time effects, read against not-yet-treated varieties \citep{CallawaySantAnna2021}.
+
+The usual warning still applies: pooled two-way fixed effects can use already-treated units as bad controls under heterogeneous effects \citep{GoodmanBacon2021,deChaisemartin2020}. Event-study and imputation estimators address that weighting contamination \citep{SunAbraham2021,BorusyakJaravelSpiess2024}.
+
+More polities don't automatically mean more identification. France, last to adopt, can help for Switzerland and Belgium, but its own 1998 change has no not-yet-treated peer inside the four; Quebec, treated since 1979, is no clean control for most later windows.
+
+Selection into timing is the deeper problem: each polity adopts when its gender politics have already moved, and that movement shifts usage too. Sensitivity analysis can bound a trends violation \citep{RambachanRoth2023}, but it can't manufacture exogeneity.
+
+What staggering buys is a policy-time versus calendar-time test. If policies move usage, jumps should align with each polity's date; if a shared wave moves usage, they should align in calendar time. France's 1986 near-null policy is the internal placebo: an effect there discredits the pipeline. This catches synchronized waves, not heterogeneous local waves that each drive their own adoption date, so the honest modal verdict for this rung is often descriptive or not identified.
+
+\FloatBarrier
+
+\begin{table}[!ht]
+\centering
+\scriptsize
+\caption{Candidate data homes for the designs above and for the two used in the article. None of these is a completed analysis; the first two rows require licensed archives.}
+\label{tab:datahomes}
+\begin{tabular}{@{}p{0.20\textwidth} p{0.24\textwidth} p{0.20\textwidth} p{0.25\textwidth}@{}}
+\toprule
+\textbf{Design piece} & \textbf{Candidate data} & \textbf{Outcome cue} & \textbf{Main failure mode} \\
+\midrule
+Swiss-France press & edited newspapers, with shared wire separated & female-referent title/profession terms & AFP/shared-media interference \\
+Francophone staggered design & Quebec, Switzerland, Belgium, France press & strategy-agnostic marking plus strategy split & timing selected on gender-ideology wave \\
+Swiss parliamentary contrast & Federal Assembly \emph{Bulletin officiel} & parliamentary address/title forms & transcription convention and official-record normalization \\
+Triangulation only & spoken or lightly edited corpora where conditioning is reliable & same cue where recoverable & referent conditioning and transcription reliability \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\printbibliography
+\end{document}

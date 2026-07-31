@@ -1,11 +1,12 @@
-# Submission copy-paste sheet — CLLT (ScholarOne)
+# Submission copy-paste sheet — IJCL
 
-Plain-text fields for the ScholarOne manuscript form. Source of truth is `main.tex`;
-this file is kept in sync (title, abstract, keywords pulled verbatim, 2026-06-20).
+Plain-text fields for the Benjamins/IJCL manuscript form. Source of truth is
+`main.tex`; this file is kept in sync with the IJCL retargeted draft
+(2026-07-03).
 
 ---
 
-## Title (full, colon form)
+## Title
 
 Difference-in-differences for corpus linguistics: Causal inference, corpus composition, and linguistic change after shocks
 
@@ -16,19 +17,19 @@ Difference-in-differences for corpus linguistics: Causal inference, corpus compo
 
 ---
 
-## Abstract (199 words)
+## Abstract (140 words)
 
-A form's frequency may move after a shock (contact with another language, a new medium, a redrawn border, or a government decree), and whether the shock caused the change is a natural question. Difference-in-differences is built for that counterfactual, with the discipline applied economics already brings to constructed aggregates like price indices, where the observed number isn't the quantity of interest either. This paper carries that discipline to corpus frequencies, where it's rarely applied and where composition and coding make it bite harder. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating several things a corpus merges: the target population, the corpus composition, the measurement procedure, and the units at which treatment varies and uncertainty is counted. Identifying a change in the rate then needs parallel trends twice over, in the rate and the corpus filter, and the diagnostics can only disqualify or bound the claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive reading, a shared wave, or not identified. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test, not an empirical finding.
+Difference-in-differences (DiD) is built for counterfactual claims about change after shocks, but a corpus frequency isn't the estimand itself. This paper translates DiD into corpus terms by treating the expected corpus frequency as a population rate plus composition-and-measurement bias, with realized proportions adding sampling noise. A causal reading requires separating the target population, corpus composition, measurement procedure, identifying unit, and dependence unit before estimation. Parallel trends have to hold twice over, in the underlying rate and in the corpus filter; diagnostics can disqualify or bound this claim, not confirm it. The paper gives a reporting discipline and pre-specified decision ladder that routes results to a bounded estimate, descriptive reading, shared wave, or not identified. Simulations map when the ladder succeeds and fails. Feminization of profession nouns under francophone language policy is used as a stress test, not an empirical finding.
 
 ---
 
 ## Keywords
 
-Semicolon-separated (CLLT visible-line form):
+Semicolon-separated:
 
 difference-in-differences; corpus linguistics; causal inference; corpus composition; linguistic change
 
-Comma-separated (if the form wants commas):
+Comma-separated:
 
 difference-in-differences, corpus linguistics, causal inference, corpus composition, linguistic change
 
@@ -46,14 +47,15 @@ difference-in-differences, corpus linguistics, causal inference, corpus composit
 ## Files to upload
 
 - `main-blind.pdf` — anonymized manuscript for review (`make blind`; verified leak-free)
-- `simulations/` (3 `.py` scripts + `README.md`) — supplementary material / reproducibility
-- `submission/cover-letter.md` — cover letter (paste into the form or convert to PDF)
+- `submission/simulations-supplement.zip` — supplementary code archive
+- `submission/cover-letter-ijcl.md` — cover letter text (paste into the form or render if a separate file is requested)
 
 ## Article type / declarations
 
-- **Article type:** research/methodological article
+- **Article type:** full research paper / methodological article
 - **Competing interests:** none
 - **Funding:** none to declare
 - **Ethics:** no human-subjects data; the corpora named in the worked example are illustrative, not analyzed
-- **AI use:** disclosed in the manuscript (Claude Opus 4.8, OpenAI Codex, as drafting/editing aids; author responsible for all claims)
-- **Reference style:** currently biblatex-apa; reformat to the Unified Style Sheet for Linguistics deferred to acceptance
+- **AI use:** disclosed in the cover letter (Claude Opus 4.8, OpenAI Codex, as drafting/editing aids; author responsible for all claims)
+- **Data/code:** three deterministic Python scripts, standard library only, fixed seeds, supplied as supplementary material
+- **Reference style:** manuscript currently uses the house `biblatex-apa` setup; confirm whether Benjamins requires a different reference style at first submission

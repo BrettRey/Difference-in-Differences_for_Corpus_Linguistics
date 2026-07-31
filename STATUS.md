@@ -1,21 +1,22 @@
 ---
 slug: difference-in-differences-for-corpus-linguistics
 kind: paper
-title: 'Difference-in-differences for corpus linguistics: Causal inference, corpus composition, and linguistic
-  change after shocks'
+title: 'Did the intervention change usage? Validity threats and difference-in-differences
+  in before-and-after corpus designs'
 stage: complete
 external: rejected
 blocked_on:
-- venue-decision
-updated: 2026-07-13
+- submission-package
+updated: 2026-07-31
 source:
 - STATUS.md
 - PORTFOLIO.md
 preprints:
 - lingbuzz/010080
-next_action: Choose a retarget venue off the corpus-linguistics-journal track (three desk rejections on
-  centrality across Reynolds methods papers have exhausted it); complete a new venue-decision record before
-  repackaging
+next_action: Build the RMAL submission package. Venue approved 2026-07-31 (record submission/venue-decision-2026-07-31.md).
+  Required first: move the generative-AI declaration back into the manuscript in a new section before the references
+  per Elsevier's prescribed title and template; confirm Research Article as the article type (Brief Report caps at 5,000
+  words); resolve the live submission route, since editorialmanager.com/rmal reports 'site under development'
 notes: 'Desk-rejected by CLLT (CLLT.2026.0087, 2026-07-01) and then IJCL (IJCL-26173, 2026-07-13), both
   on centrality/fit -- ''same grounds as Corpora''s rejection of the dative sibling'' (bresnan-dative-alternation-reanalysis).
   PORTFOLIO.md:41''s own bolded Status-column word is ''**Preprint** (IJCL + CLLT desk-rejected)'', which
@@ -32,10 +33,10 @@ notes: 'Desk-rejected by CLLT (CLLT.2026.0087, 2026-07-01) and then IJCL (IJCL-2
 
 # STATUS
 
-**Last updated:** 2026-07-13
-**State:** **DESK-REJECTED at IJCL (2026-07-13).** Manuscript IJCL-26173 was assigned and then desk-rejected the same day by Associate Editor Gavin Brookes: "not sufficiently situated within a corpus linguistics research context." Second corpus-linguistics desk rejection of this paper (CLLT desk-rejected it 2026-07-01 on the same grounds) and the third across Reynolds methods papers (Corpora desk-rejected the dative sibling 2026-07-12). All public surfaces reverted to Preprint. Originally submitted to IJCL via Editorial Manager on 03-Jul-2026. Track at https://www.editorialmanager.com/ijcl/. As-submitted build (the 2026-07-03 hard cut): 9 sections, 15 pp, 7,487 PDF words all-in, abstract 140 w (portal cap 150), 1 figure, 4 tables. Preprint remains live at [LingBuzz 010080](https://lingbuzz.net/lingbuzz/010080); cite as `lingbuzz/010080`. The earlier CLLT submission (CLLT.2026.0087, submitted 20-Jun-2026) was desk rejected for scope/fit on 01-Jul-2026; CLLT-specific submission files remain in `submission/` as archival material.
-**Next action:** Choose a retarget venue **off the corpus-linguistics-journal track** (Brett's decision) — three corpus-linguistics desk rejections on centrality have exhausted it for this methods paper. Candidates: Journal of Quantitative Linguistics, Research Methods in Applied Linguistics, Glossa/OLH (transparency AI policy), or NLP/CL (Natural Language Engineering, LRE). Corpora is NOT a fallback (it desk-rejected the dative sibling on the same grounds). A new venue-decision record is required before repackaging; make the field-internal payoff legible on page one. Letter: `submission/ijcl-desk-rejection-2026-07-13.md`.
-**Blocker:** None. In the journal's queue.
+**Last updated:** 2026-07-31
+**State:** **RETARGETED to *Research Methods in Applied Linguistics* (Elsevier); venue approved by Brett 2026-07-31, not yet submitted.** Record: `submission/venue-decision-2026-07-31.md`. Submitting as a **Research Article** (10,000-word cap; Brief Report would cap at 5,000). Manuscript rebuilt the same day: retitled "Did the intervention change usage? Validity threats and difference-in-differences in before-and-after corpus designs", page one reframed on validity theory (Messick's construct underrepresentation and construct-irrelevant variance), and a worked numerical example added to section 2 showing composition drift manufacturing a four-point DiD effect against a true effect of zero. Current build: 17 pp, 8,420 words (cap 10,000), abstract 177 w (cap 250), 6 keywords (cap 7), 1 figure, 5 tables; `make` and `make blind` both clean with 0 undefined citations. Prior history: desk-rejected by IJCL (IJCL-26173, 2026-07-13, AE Gavin Brookes, "not sufficiently situated within a corpus linguistics research context") and by CLLT (CLLT.2026.0087, 2026-07-01), both on centrality; the dative sibling was desk-rejected by *Corpora* on the same grounds 2026-07-12. Preprint live at [LingBuzz 010080](https://lingbuzz.net/lingbuzz/010080), but it is the **pre-cut 11,400-word CLLT version and two revisions behind**; refresh or annotate it.
+**Next action:** Build the RMAL package. Three items must come first: (1) move the generative-AI declaration back into the manuscript, in a new section before the references, under Elsevier's prescribed title and template (it was moved to the cover letter on 2026-06-20 for CLLT and RMAL requires the opposite; this also overrides the house page-one `\aidisclosure{}` default); (2) hold the Research Article reading by making the simulation study legible in the abstract, since Brief Report caps at 5,000 words; (3) resolve the submission route, since `editorialmanager.com/rmal` returns "Site under development. Do not use for live manuscript submission." Then run `/submission-gate`. Roughly 4,000 words cut for IJCL's 9,000 cap can partly return within RMAL's 10,000; the cold reads say the decision ladder's thresholds are what to restore.
+**Blocker:** None. Venue approved; package work unblocked.
 
 ## Working Title
 

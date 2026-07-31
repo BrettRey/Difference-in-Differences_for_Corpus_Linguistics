@@ -1,8 +1,8 @@
 # Ethical and Legal Declarations
 
-Content for the journal's "Template of Ethical and Legal Declarations." Transfer
-these answers into De Gruyter's actual form/template; verify the wording of each
-prompt against the version ScholarOne provides.
+Generic declaration text for the submission form. Transfer these answers into
+the live Benjamins/IJCL prompts and adjust wording only where the form requires
+a specific label.
 
 **Human and animal subjects.** This study involves no human or animal subjects. No human-subjects data is used; the corpora named in the worked example are illustrative, not analyzed.
 

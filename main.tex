@@ -16,21 +16,16 @@
 \newif\ifblind
 \ifdefined\blindbuild \blindtrue \else \blindfalse \fi
 
-% CLLT / De Gruyter Mouton: key terms in italics at first mention (their style
-% sheet forbids small caps for emphasis). Local override of the house-style
-% \term (small caps) for this paper only; the central preamble is untouched.
-\renewcommand{\term}[1]{\emph{#1}}
-
 \hypersetup{
-  pdftitle={Difference-in-differences for corpus linguistics: Causal inference, corpus composition, and linguistic change after shocks},
-  pdfkeywords={difference-in-differences, corpus linguistics, causal inference, corpus composition, linguistic change}
+  pdftitle={Did the intervention change usage? Validity threats and difference-in-differences in before-and-after corpus designs},
+  pdfkeywords={construct validity, difference-in-differences, causal inference, corpus composition, research methods, language policy evaluation}
 }
 % In blind mode, strip the author from the PDF metadata too: the house-style
 % preamble hardcodes pdfauthor={Brett Reynolds}, so this override must follow it.
 \ifblind\hypersetup{pdfauthor={}}\fi
 
-\title{Difference-in-differences for corpus linguistics\\
-{\large Causal inference, corpus composition, and linguistic change after shocks}}
+\title{Did the intervention change usage?\\
+{\large Validity threats and difference-in-differences in before-and-after corpus designs}}
 \ifblind
   \author{[\textit{Author name, ORCID, and affiliation removed for double-blind review}]}
 \else
@@ -38,16 +33,17 @@
   \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
   Humber Polytechnic \& University of Toronto}
 \fi
-\date{June 2026}
+% Set to the submission month. Frozen rather than \today so the date doesn't float per build.
+\date{July 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-A form's frequency may move after a shock (contact with another language, a new medium, a redrawn border, or a government decree), and whether the shock caused the change is a natural question. Difference-in-differences is built for that counterfactual, with the discipline applied economics already brings to constructed aggregates like price indices, where the observed number isn't the quantity of interest either. This paper carries that discipline to corpus frequencies, where it's rarely applied and where composition and coding make it bite harder. A corpus frequency is a population rate plus a composition-and-measurement term, so a causal reading requires separating several things a corpus merges: the target population, the corpus composition, the measurement procedure, and the units at which treatment varies and uncertainty is counted. Identifying a change in the rate then needs parallel trends twice over, in the rate and the corpus filter, and the diagnostics can only disqualify or bound the claim, never confirm it. A pre-specified decision ladder routes each result to a bounded estimate, a descriptive reading, a shared wave, or not identified. A worked example, the feminization of profession nouns under francophone language policy, runs throughout as a stress test, not an empirical finding.
+Researchers routinely claim that a policy, reform, or campaign changed language use, comparing corpus frequencies before and after. A corpus frequency is a score, not the construct it stands for: it carries the population rate plus whatever the corpus's composition and coding contributed. That contribution shifts across periods for reasons unrelated to anyone's usage, and a two-point comparison can't separate it from an effect. Difference-in-differences is the standard repair, and this paper translates its assumptions into corpus terms. Parallel trends then have to hold twice, in the underlying rate and in the corpus itself. A worked case shows the first holding exactly while the second fails, producing a four-point effect where the true effect is zero. Diagnostics can disqualify or bound a causal reading, never confirm it. The paper supplies a reporting standard and a pre-specified decision procedure ending in one of four verdicts, one of which is that the effect isn't identified, with simulations mapping where the procedure works. Feminization of profession nouns under francophone language policy is a stress test, not a finding.
 \end{abstract}
 
-\noindent\textbf{Keywords:} difference-in-differences; corpus linguistics; causal inference; corpus composition; linguistic change
+\noindent\textbf{Keywords:} construct validity; difference-in-differences; causal inference; corpus composition; research methods; language policy evaluation
 
 \input{sections/01-problem}
 \input{sections/02-did-estimand}
@@ -57,20 +53,23 @@ A form's frequency may move after a shock (contact with another language, a new 
 \input{sections/06-diagnostics}
 \input{sections/07-modern-did-choices}
 \input{sections/08-worked-example}
-% Flush any pending Section 8 floats (Tables 1-2) so they can't drift into the
+% Flush any pending Section 8 floats so they can't drift into the
 % conclusion, without forcing an unconditional page break before it.
 \FloatBarrier
 \input{sections/09-conclusion}
 
 \section*{Data and code availability}
 % On acceptance, a public archive with a DOI (e.g. Zenodo) can replace "supplementary material".
-The simulations of Section~\ref{sec:worked} are reproduced by three short Python scripts (standard library only, fixed random seeds), provided as supplementary material. The reported numbers reproduce exactly from the seeded scripts: \texttt{rung-failure-map.py} (seed~7) generates Table~\ref{tab:failuremap} and the operating-characteristic rates quoted in the text, \texttt{rung1-recovery-sim.py} (seed~2024) the reweighting-recovery estimates, and \texttt{rung1-ladder-sim.py} (seed~12345) the decision-ladder routing check. No human-subjects data is used, and the corpora named in the worked example are illustrative rather than analyzed.
+The simulations of Section~\ref{sec:worked} are reproduced by three short Python scripts (standard library only, fixed random seeds), provided as supplementary material. The reported numbers reproduce exactly from the seeded scripts: \texttt{rung-failure-map.py} (seed~7) generates Table~\ref{tab:failuremap} and the operating-characteristic rates quoted in the text, \texttt{rung1-recovery-sim.py} (seed~2024) the reweighting-recovery estimates, and \texttt{rung1-ladder-sim.py} (seed~12345) the decision-ladder routing check; the \texttt{rung} in those filenames is retained from an earlier draft's numbering and is not a term used here. The speaker-pool figures of Table~\ref{tab:speakerpool} are reproduced by \texttt{speaker-pool-audit.py}, which queries the Federal Assembly's open service directly and needs no key; it is not a simulation, and its output is checked against the chamber's fixed size and against the reported result of the 2019 federal election. No human-subjects data is used, and the corpora named in the worked example are illustrative rather than analyzed.
 
-% AI-use disclosure lives in the cover letter (submission/cover-letter.md), not in
-% the manuscript -- this keeps the blinded review copy free of acknowledgments per
-% the submission system's blinding requirement. If the journal wants the disclosure
-% in the published version, restore an Acknowledgements section at the camera-ready
-% stage.
+% RMAL/Elsevier require the generative-AI declaration IN the manuscript, in a new
+% section before the reference list, under this exact title and following their
+% template. This supersedes the 2026-06-20 decision that moved it to the cover
+% letter for CLLT, and overrides the house default of \aidisclosure{} on page one.
+% It is retained in the blinded build: naming a model is not an author identity,
+% and a required declaration is not an acknowledgement.
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the author used Anthropic Claude (Opus 4.8 and Opus 5) and OpenAI Codex as drafting and editing aids, and used Claude, Google Gemini, GPT-OSS, and GitHub Copilot to generate simulated reader responses that informed revisions to the opening sections. After using these tools and services, the author reviewed and edited the content as needed and takes full responsibility for the content of the published article.
 
 \clearpage
 \printbibliography
