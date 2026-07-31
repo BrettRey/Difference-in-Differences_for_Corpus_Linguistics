@@ -1,6 +1,11 @@
-# Simulations: the rung-1 decision ladder
+# Scripts: the decision ladder, and one archive measurement
 
-Replication code for the simulation results in Section 8 ("Worked example") of
+Filenames containing `rung` are retained from an earlier draft that built the
+worked example in numbered rungs. The article no longer uses that vocabulary;
+the names are kept so that outputs archived against them stay traceable. Where
+the article says "the simulated two-variety design", these scripts say "rung 1".
+
+Replication code for the results in Section 8 ("Evidence: simulation and a measured filter") of
 *Difference-in-differences for corpus linguistics: Causal inference, corpus
 composition, and linguistic change after shocks*. A corpus never reveals the
 population rate, so these simulations are the one place the design can be checked
@@ -27,15 +32,15 @@ per scenario across the realistic failure dimensions (hidden composition/editing
 drift *outside* the reweighting strata, small/sparse effects, interference,
 selection-into-timing). Reports the misroute rate — false-effect claims (FP) and
 missed real effects (FN) — for each scenario. Generates the rates in the
-failure-map table and the 56% / 94% / 8% figures quoted in the worked example.
+failure-map table and the 56% / 94% / 8% figures quoted in that section.
 
-### `rung1-recovery-sim.py` (seed 2024) — recovery estimates in the worked example
+### `rung1-recovery-sim.py` (seed 2024) — recovery estimates
 Does reweighting *recover* the truth, not merely flag the artifact? Three arms: a
 real effect (`benign`), a pure composition shift on an observable stratum
 (`malign_rate`), and an unobserved within-stratum drift (`malign_unmeasured`).
 Produces the naive **+0.13** / reweighted **−0.000** / both-near-**+0.15**
 estimates, and the Part-2 check that partial pooling buys no variance at a
-two-period rung 1.
+the two-period simulated design.
 
 ### `rung1-ladder-sim.py` (seed 12345) — routing validation
 The earliest, minimal check: under clean/oracle conditions, does the ladder route
@@ -63,7 +68,7 @@ series, in order, short-circuiting at the first gate that fires:
 4. **Sensitivity gate** — a reweighted DiD that has cleared the earlier gates but
    sits inside the band `|DiD| ≤ 1.5 × (largest placebo-date contrast) + 0.01` is a
    *bounded null* (an effect too small to separate from zero). Telling a bounded
-   null from a *shared wave* is rung 2's calendar-time test, not a rung-1 gate.
+   null from a *shared wave* needs the calendar-time comparison, which these gates do not perform.
 5. Otherwise → *bounded estimate*.
 
 The placebo-date contrasts are computed at non-treatment years (1988, 2000, 2001,
@@ -75,10 +80,24 @@ false-positive rate up. The *descriptive* verdict of the paper's full ladder is 
 human judgment (a check that is *ambiguous* rather than passed or failed) and is
 not part of the automated routine.
 
+### `speaker-pool-audit.py` — archive measurement, not a simulation
+
+Queries the Swiss Federal Assembly's public OData service for every parliamentary
+mandate and reconstructs the composition of the sitting chamber on any date. No
+key, no registration, no seed: the numbers come from the archive, so they change
+only if the archive does. Produces the speaker-pool table in the article.
+
+Validation is built in. The Nationalrat has held 200 seats since 1963, which the
+reconstruction recovers for post-1963 dates, and the 2020 row returns 84 women of
+200, matching the reported outcome of the 2019 federal election.
+
+Note it reads `MemberCouncilHistory`, not `MemberCouncil`. The latter stores one
+mandate per person and undercounts the chamber badly at older reference dates.
+
 ## Reproducing the reported numbers
 
 | Reported in the paper                         | Script                  | Seed  |
 |-----------------------------------------------|-------------------------|-------|
 | failure-map table                             | `rung-failure-map.py`   | 7     |
-| worked-example recovery estimates (+0.13, ≈0, +0.15) | `rung1-recovery-sim.py` | 2024  |
+| recovery estimates (+0.13, ≈0, +0.15)         | `rung1-recovery-sim.py` | 2024  |
 | ladder routing validation                     | `rung1-ladder-sim.py`   | 12345 |

@@ -1,3 +1,10 @@
+> **SUPERSEDED, ARCHIVAL ONLY. DO NOT USE AT A PORTAL.**
+>
+> This is the IJCL submission of 2026-07-03. It carries the old title and the
+> 140-word IJCL abstract, both of which the manuscript has since replaced.
+> For RMAL use `submission/portal-fields-RMAL-2026-07-31.md`, which carries the
+> current values with a source pointer for each.
+
 # Submission copy-paste sheet — IJCL
 
 Plain-text fields for the Benjamins/IJCL manuscript form. Source of truth is

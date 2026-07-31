@@ -52,7 +52,7 @@ the submission day.
 | submission/title-page.pdf | Title Page | yes, rebuilt 2026-07-31 with the current title |
 | submission/declarations.md | Declarations | needs re-check against RMAL wording |
 | supplement/supplementary-designs.pdf | Supplementary material | yes |
-| simulations/*.py | Supplementary material | 4 scripts incl. speaker-pool-audit.py |
+| submission/simulations-supplement.zip | Supplementary material | rebuilt 2026-07-31: 4 scripts incl. speaker-pool-audit.py, plus README |
 | submission/cover-letter-rmal.pdf | Cover letter | yes, written 2026-07-31 |
 
 ## 5. Declarations, final wording
@@ -86,7 +86,13 @@ Worked 2026-07-31. Two remain, and both need Brett rather than more checking.
 | 6 | Open access / licence / APC | **NOT A SUBMISSION FIELD.** The guide states authors complete the publishing agreement *after acceptance*. Nothing to decide now. |
 | 7 | LingBuzz preprint | **OPEN, needs Brett.** The public copy is the pre-cut CLLT version, roughly 11,400 words and several revisions behind. Refreshing it is a public action and his call. Preprints do not count as prior publication for RMAL, so either choice is compliant; the argument for refreshing is that a reviewer or reader following the link currently reads a different paper. The current build is ready to upload if wanted. |
 
-## 12. Remaining pre-submission tasks
+## 12. Superseded files, do not use
+
+`submission/copy-paste-ijcl-2026-07-03.md` is the IJCL sheet, kept for the record
+and marked at the top. It carries the old title and the 140-word IJCL abstract.
+This file, not that one, is the source for portal fields.
+
+## 13. Remaining pre-submission tasks
 
 - Assemble the `.tex` source bundle (main.tex, sections/, references, house-style inputs). RMAL will not accept a PDF as source.
 - Re-confirm the guide's limits on the submission day; they change.
